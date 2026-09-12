@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { load } from 'cheerio';
 
 const FIXTURES = [
@@ -169,12 +169,13 @@ function extractP1Prices(normText) {
 async function getP1Quote(fixture) {
   const homeSlugs = P1_SLUGS[fixture.home] || [];
   const awaySlugs = P1_SLUGS[fixture.away] || [];
+  let hadFetchFailure = false;
 
   for (const homeSlug of homeSlugs) {
     for (const awaySlug of awaySlugs) {
       const url = `https://www.p1travel.com/en/football/premier-league/${homeSlug}-vs-${awaySlug}`;
       const page = await fetchText(url);
-      if (!page.ok) continue;
+      if (!page.ok) { hadFetchFailure = true; continue; }
       if (/Page Not Found|Could not find requested resource/i.test(page.text)) continue;
       const prices = extractP1Prices(page.norm);
       if (!prices.length) {
@@ -184,11 +185,25 @@ async function getP1Quote(fixture) {
     }
   }
 
-  return { price: null, url: null, status: 'not-listed' };
+  return { price: null, url: null, status: hadFetchFailure ? 'fetch-failed' : 'not-listed' };
+}
+
+function preserveOnTransientFailure(fresh, previous) {
+  if (fresh?.status !== 'fetch-failed') return fresh;
+  if (previous && typeof previous.price === 'number') {
+    return { ...previous, stale: true, status: 'stale-fetch-failed' };
+  }
+  return fresh;
+}
+
+async function readPrevious() {
+  try { return JSON.parse(await readFile('data/prices.json', 'utf8')); }
+  catch { return { fixtures: {} }; }
 }
 
 async function main() {
   const generatedAt = new Date().toISOString();
+  const previous = await readPrevious();
   const out = {
     generatedAt,
     providers: ['champions', 'p1'],
@@ -201,16 +216,20 @@ async function main() {
       getP1Quote(fixture)
     ]);
 
+    const prev = previous.fixtures?.[fixture.id] || {};
+    const safeChampions = preserveOnTransientFailure(champions, prev.champions);
+    const safeP1 = preserveOnTransientFailure(p1, prev.p1);
+
     out.fixtures[fixture.id] = {
       home: fixture.home,
       away: fixture.away,
       date: fixture.sort,
       checkedAt: generatedAt,
-      champions,
-      p1
+      champions: safeChampions,
+      p1: safeP1
     };
 
-    console.log(`${fixture.id}: CT=${champions.price ?? '—'} (${champions.status}) | P1=${p1.price ?? '—'} (${p1.status})`);
+    console.log(`${fixture.id}: CT=${safeChampions.price ?? '—'} (${safeChampions.status}) | P1=${safeP1.price ?? '—'} (${safeP1.status})`);
   }
 
   await mkdir('data', { recursive: true });
