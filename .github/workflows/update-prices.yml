@@ -3,7 +3,6 @@ name: Update reseller prices
 on:
   workflow_dispatch:
   schedule:
-    # Hourly. GitHub cron is UTC and may start a few minutes late.
     - cron: '17 * * * *'
   push:
     paths:
@@ -48,24 +47,21 @@ jobs:
           echo '## Reseller price refresh' >> "$GITHUB_STEP_SUMMARY"
           echo "Scrape step: **${SCRAPE_OUTCOME}**" >> "$GITHUB_STEP_SUMMARY"
           echo '' >> "$GITHUB_STEP_SUMMARY"
-
           if [[ -f data/prices.json ]]; then
             node <<'NODE' >> "$GITHUB_STEP_SUMMARY"
-          const fs = require('fs');
-          const p = JSON.parse(fs.readFileSync('data/prices.json','utf8'));
-          const rows = Object.values(p.fixtures || {});
-          const live = provider => rows.filter(r => typeof r?.[provider]?.price === 'number').length;
-          const failed = provider => rows.filter(r => String(r?.[provider]?.status || '').includes('failed')).length;
-          const generated = p.generatedAt ? new Date(p.generatedAt) : null;
-          const ageMinutes = generated && !Number.isNaN(generated.getTime())
-            ? Math.max(0, Math.round((Date.now() - generated.getTime()) / 60000))
-            : null;
-          console.log(`Price file timestamp: **${p.generatedAt || 'unknown'}**`);
-          if (ageMinutes !== null) console.log(`\nPrice-file age at summary time: **${ageMinutes} min**`);
-          console.log(`\n- Champions Travel prices: **${live('champions')}**`);
-          console.log(`- P1 Travel prices: **${live('p1')}**`);
-          console.log(`- CT fetch failures retained from previous good data: **${failed('champions')}**`);
-          console.log(`- P1 fetch failures retained from previous good data: **${failed('p1')}**`);
+          const fs=require('fs');
+          const p=JSON.parse(fs.readFileSync('data/prices.json','utf8'));
+          const rows=Object.values(p.fixtures||{});
+          const quoted=x=>rows.filter(r=>typeof r?.[x]?.price==='number').length;
+          const fresh=x=>rows.filter(r=>typeof r?.[x]?.price==='number' && !r[x].stale).length;
+          const stale=x=>rows.filter(r=>typeof r?.[x]?.price==='number' && r[x].stale).length;
+          const statuses=x=>rows.reduce((a,r)=>{const s=r?.[x]?.status||'missing';a[s]=(a[s]||0)+1;return a;},{});
+          console.log(`Price file timestamp: **${p.generatedAt||'unknown'}**`);
+          console.log(`\n- Champions Travel: **${quoted('champions')} quoted** (${fresh('champions')} fresh / ${stale('champions')} retained)`);
+          console.log(`- P1 Travel: **${quoted('p1')} quoted** (${fresh('p1')} fresh / ${stale('p1')} retained)`);
+          console.log(`- FX: USD ${p.fx?.USD??'unavailable'} · GBP ${p.fx?.GBP??'unavailable'} per EUR`);
+          console.log(`\n### CT scrape statuses\n\`${JSON.stringify(statuses('champions'))}\``);
+          console.log(`\n### P1 scrape statuses\n\`${JSON.stringify(statuses('p1'))}\``);
           NODE
           else
             echo 'data/prices.json was not produced.' >> "$GITHUB_STEP_SUMMARY"
