@@ -1,19 +1,14 @@
-# Leeds Trip Planner 2026/27
+# Leeds United 2026/27 Full Season Trip Planner
 
-Single-file GitHub Pages microsite.
+Upload `index.html` to the root of a GitHub repository and enable GitHub Pages.
 
-## Upload
-1. Upload `index.html` to the root of your GitHub repository.
-2. In GitHub: Settings → Pages.
-3. Deploy from the branch/root containing `index.html`.
+## v3 changes
+- Every remaining Premier League fixture, home and away, in one chronological timeline
+- All/Home/Away/FA Cup toggles
+- FA Cup placeholders from Round 3 through the Final
+- Club crests for every league opponent
+- Kickoff times shown for confirmed fixtures; TBC otherwise
+- Annual-leave tiles calculated from the 21-day rota, including the following travel-home day
+- Existing local browser notes and booking/ticket status remain supported
 
-## Included
-- Premier League club crests via the Premier League static asset CDN, with text fallbacks.
-- Actual calendar dates shown inside each Fri/Sat/Sun/Mon or Tue/Wed/Thu leave option.
-- Confirmed kickoff times for fixed fixtures; TBC for unconfirmed fixtures.
-- Annual-leave colour coding, TV-resilience and same-day-return filters.
-- FA Cup risk, Man Utd same-round context, Rhinos placeholders, and TV release radar.
-- Local notes and booking/ticket status saved in the browser via localStorage.
-- Print / Save PDF button.
-
-No build process or dependencies are required.
+Data snapshot: 12 September 2026. Fixtures remain subject to change.
