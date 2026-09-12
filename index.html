@@ -1,1 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#082b55" />
+<title>Leeds Trip Planner 26/27</title>
+<style>
+:root{
+  --navy:#082b55; --navy2:#164a7b; --yellow:#f5d548; --ink:#14202b; --muted:#647180;
+  --bg:#eef2f6; --card:#ffffff; --line:#dbe2e9; --green:#dff3e3; --green-b:#2f8f46;
+  --amber:#ffe8ad; --amber-b:#d29d00; --red:#f7d2d2; --red-b:#c94747; --blue:#e8f1fb; --grey:#edf0f4;
+  --shadow:0 8px 28px rgba(6,35,65,.08); --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit}
+.hero{background:linear-gradient(135deg,var(--navy),#0d3c72 66%,#174f87);color:white;padding:24px 18px 18px;border-bottom:5px solid var(--yellow)}
+.hero-inner{max-width:1180px;margin:auto;display:flex;gap:18px;justify-content:space-between;align-items:end;flex-wrap:wrap}
+.kicker{font-size:.76rem;font-weight:900;letter-spacing:.15em;color:var(--yellow);text-transform:uppercase;margin-bottom:6px}
+h1{margin:0;font-size:clamp(1.8rem,4vw,3rem);line-height:.97;letter-spacing:-.04em}
+.hero p{margin:9px 0 0;max-width:780px;color:#e6eef7;font-size:.92rem;line-height:1.45}
+.badge-rule{display:grid;grid-template-columns:repeat(3,auto);gap:6px;align-items:center}.rule{padding:8px 10px;border-radius:10px;font-weight:900;font-size:.76rem;color:var(--navy);text-align:center;min-width:88px}.g{background:var(--green)}.a{background:var(--amber)}.r{background:var(--red)}
+.wrap{max-width:1180px;margin:18px auto 60px;padding:0 14px}
+.top-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-bottom:14px}.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.panel-pad{padding:14px}.panel h2{margin:0 0 10px;font-size:1rem;color:var(--navy)}
+.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.summary-card{border:1px solid var(--line);border-radius:12px;padding:11px;background:#fafbfd}.summary-card b{display:block;font-size:1.5rem;color:var(--navy);line-height:1}.summary-card span{display:block;font-size:.72rem;color:var(--muted);margin-top:5px}
+.callout{background:linear-gradient(135deg,#fff8cc,#fffdf1);border:1px solid #ead56f}.callout strong{color:var(--navy)}
+.controls{position:sticky;top:0;z-index:10;background:rgba(238,242,246,.92);backdrop-filter:blur(12px);padding:10px 0 8px;margin-bottom:8px}
+.control-row{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.filter-btn,.sort-select{border:1px solid var(--line);background:white;border-radius:999px;padding:8px 11px;font-weight:800;font-size:.76rem;color:var(--navy);cursor:pointer}.filter-btn.active{background:var(--navy);color:white;border-color:var(--navy)}.sort-select{border-radius:10px;margin-left:auto}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin:20px 2px 8px}.section-title h2{margin:0;color:var(--navy);font-size:1.12rem}.section-title span{font-size:.72rem;color:var(--muted)}
+.fixture-list{display:grid;gap:10px}.fixture{background:white;border:1px solid var(--line);border-radius:15px;box-shadow:0 4px 15px rgba(7,35,65,.05);overflow:hidden}.fixture.hidden{display:none}
+.fixture-main{display:grid;grid-template-columns:112px 1.1fr 86px minmax(300px,1.35fr) 1fr;gap:10px;align-items:center;padding:11px 12px;cursor:pointer}.datebox small{display:block;color:var(--muted);font-size:.65rem;font-weight:800;text-transform:uppercase}.datebox b{font-size:.92rem;color:var(--navy)}
+.opponent{font-weight:950;color:var(--navy);font-size:1rem}.subline{font-size:.68rem;color:var(--muted);margin-top:3px}.score{display:flex;align-items:center;justify-content:center;border-radius:12px;padding:8px 6px;font-weight:950;color:var(--navy);border:1px solid var(--line)}.score em{font-style:normal;font-size:.7rem;margin-left:2px;color:var(--muted)}
+.score.top{background:var(--green)}.score.good{background:#fff4c8}.score.mid{background:var(--blue)}.score.low{background:var(--red)}
+.days{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:5px}.day{border-radius:10px;overflow:hidden;border:1px solid var(--line);text-align:center;min-width:54px}.day .d{display:block;background:#f3f6f9;font-size:.57rem;font-weight:950;color:var(--navy);padding:3px 2px;letter-spacing:.05em}.day .h{display:block;padding:6px 3px;font-weight:950;font-size:.72rem}.day.zero .h{background:var(--green)}.day.ok .h{background:var(--amber)}.day.no .h{background:var(--red)}.day.na .h{background:var(--grey);color:var(--muted)}.day.conditional .h{background:linear-gradient(135deg,var(--green) 0 48%,var(--amber) 52% 100%)}
+.meta{display:flex;gap:5px;flex-wrap:wrap}.tag{font-size:.61rem;font-weight:850;padding:4px 7px;border-radius:999px;background:#f2f5f8;color:#4d5a67;border:1px solid var(--line)}.tag.fixed{background:#e7eef9;color:#173e6b}.tag.cup-high{background:var(--red);color:#7d1d1d}.tag.cup-med{background:var(--amber);color:#6e5300}.tag.rhino{background:#ede8fb;color:#573a83}.tag.same{background:var(--green);color:#215f31}.tag.pred{background:#fff4c8;color:#6a5200}
+.details{display:none;border-top:1px solid var(--line);background:#fbfcfd;padding:12px}.fixture.open .details{display:grid;grid-template-columns:1fr 1fr;gap:12px}.details h3{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 5px}.details p{margin:0;font-size:.8rem;line-height:1.45}.detail-box{background:white;border:1px solid var(--line);border-radius:11px;padding:10px}.notes{width:100%;min-height:64px;border:1px solid var(--line);border-radius:10px;padding:9px;background:white;color:var(--ink);resize:vertical}.save-state{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.state-btn{border:1px solid var(--line);border-radius:9px;background:white;padding:6px 8px;font-size:.67rem;font-weight:850;cursor:pointer}.state-btn.on{background:var(--navy);color:white;border-color:var(--navy)}
+.footer-note{margin-top:16px;padding:12px 14px;background:#f7f9fb;border:1px solid var(--line);border-radius:12px;color:var(--muted);font-size:.72rem;line-height:1.45}
+.empty{padding:26px;text-align:center;color:var(--muted);background:white;border-radius:14px;border:1px dashed var(--line)}
+@media(max-width:850px){.top-grid{grid-template-columns:1fr}.fixture-main{grid-template-columns:82px 1fr 66px;gap:8px}.days{grid-column:1/-1}.meta{grid-column:1/-1}.fixture.open .details{grid-template-columns:1fr}.sort-select{margin-left:0}.summary-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.hero{padding:20px 12px 14px}.badge-rule{grid-template-columns:repeat(3,1fr);width:100%}.rule{min-width:0;padding:7px 4px;font-size:.66rem}.wrap{padding:0 8px;margin-top:10px}.fixture-main{padding:9px}.datebox b{font-size:.8rem}.opponent{font-size:.92rem}.days{gap:4px}.day{min-width:0}.day .h{font-size:.66rem;padding:6px 1px}.filter-btn,.sort-select{font-size:.7rem;padding:7px 9px}.summary-grid{gap:6px}.summary-card{padding:9px}.summary-card b{font-size:1.25rem}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="kicker">Leeds United 2026/27</div>
+      <h1>Trip Target Planner</h1>
+      <p>Built around your rota, Cork/Manchester travel, Ticket Exchange reality and one hard rule: <b>never burn more than 12 hours of annual leave on one match trip.</b> TV-unconfirmed fixtures remain provisional.</p>
+    </div>
+    <div class="badge-rule">
+      <div class="rule g">0h · IDEAL</div>
+      <div class="rule a">9–12h · OK</div>
+      <div class="rule r">13h+ · NO</div>
+    </div>
+  </div>
+</header>
 
+<main class="wrap">
+  <div class="top-grid">
+    <section class="panel panel-pad">
+      <h2>Current sweet spots</h2>
+      <div class="summary-grid">
+        <div class="summary-card"><b>Bournemouth</b><span>9.5 · Fri/Sat 0h</span></div>
+        <div class="summary-card"><b>Forest</b><span>9.5 · Fri/Sat 0h</span></div>
+        <div class="summary-card"><b>Brighton</b><span>Sunday 14:00 working play</span></div>
+        <div class="summary-card"><b>Fulham A</b><span>12:30 = elite day-trip</span></div>
+      </div>
+    </section>
+    <section class="panel panel-pad callout">
+      <h2>Planning rule</h2>
+      <p style="margin:0;font-size:.8rem;line-height:1.5"><strong>Outbound:</strong> morning of the game. <strong>Return:</strong> normally the next day, so that day must be free too. Exception: early Sunday kickoffs can become <strong>0h</strong> if the 20:55 MAN→ORK flight is comfortably reachable. Brighton has a particularly strong Sunday 14:00 case if they reach the Conference League R16.</p>
+    </section>
+  </div>
+
+  <div class="controls">
+    <div class="control-row">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="home">Home</button>
+      <button class="filter-btn" data-filter="away">Away</button>
+      <button class="filter-btn" data-filter="top">8+/10</button>
+      <button class="filter-btn" data-filter="zero">Has 0h option</button>
+      <button class="filter-btn" data-filter="fixed">TV fixed</button>
+      <button class="filter-btn" data-filter="cup">FA Cup risk</button>
+      <select class="sort-select" id="sortSelect" aria-label="Sort fixtures">
+        <option value="date">Chronological</option>
+        <option value="score">Best score first</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="section-title"><h2>Home fixtures</h2><span>Tap a fixture for notes & saved trip status</span></div>
+  <div id="homeList" class="fixture-list"></div>
+
+  <div class="section-title"><h2>Away options</h2><span>Only the away games currently worth tracking</span></div>
+  <div id="awayList" class="fixture-list"></div>
+
+  <div class="footer-note">
+    <b>Working assumptions:</b> Saturday placeholders can move Fri/Sat/Sun/Mon. Midweeks can move Tue/Wed/Thu. Sunday leave can drop from 12h to 0h where an early kickoff permits a same-day return. Brighton is treated as a strong Sunday candidate if their Conference League run reaches the March R16. Feb–May fixtures carry a “Rhinos TBD” marker until the 2027 Super League schedule is released.
+  </div>
+</main>
+
+<script>
+const fixtures = [
+  {id:'mun-h',kind:'home',sort:'2026-10-18',date:'Sun 18 Oct',opp:'Man Utd',score:5.8,status:'fixed',mu:'Leeds (A)',cup:'None',days:[['SUN','12h','ok']],note:'Enter the ballot regardless. Flights have recently been around €32, so cheap travel can justify an aggressive Ticket Exchange strategy even if the ballot fails.',sameDay:false,rhinos:false},
+  {id:'spurs-h',kind:'home',sort:'2026-11-07',date:'Sat 7 Nov',opp:'Spurs',score:7.8,status:'provisional',mu:'Aston Villa (H)',cup:'None',days:[['FRI','12h','ok'],['SAT','0h','zero'],['SUN','12h','conditional'],['MON','24h','no']],note:'Friday or Sunday still fit the 12h cap. Monday is out. Friday-night TV speculation is useful but not something to bank on.',sameDay:true,rhinos:false},
+  {id:'cov-h',kind:'home',sort:'2026-11-28',date:'Sat 28 Nov',opp:'Coventry',score:8.5,status:'provisional',mu:'Brentford (H)',cup:'None',days:[['FRI','12h','ok'],['SAT','0h','zero'],['SUN','12h','conditional'],['MON','24h','no']],note:'Excellent ticket prospect. Friday/Sunday moves remain within the cap. One of the best November candidates if TV lands kindly.',sameDay:true,rhinos:false},
+  {id:'ips-h',kind:'home',sort:'2026-12-05',date:'Sat 5 Dec',opp:'Ipswich',score:9.0,status:'provisional',mu:'Coventry (H)',cup:'None*',days:[['FRI','0h','zero'],['SAT','0h','zero'],['SUN','12h','conditional'],['MON','24h','no']],note:'Very robust TV-wise: Fri/Sat ideal and Sunday acceptable. Main concern is early-December Leeds hotel pricing.',sameDay:true,rhinos:false},
+  {id:'ful-h',kind:'home',sort:'2026-12-19',date:'Sat 19 Dec',opp:'Fulham',score:6.5,status:'provisional',mu:'Arsenal (A)',cup:'None',days:[['FRI','12h','ok'],['SAT','0h','zero'],['SUN','12h','conditional'],['MON','24h','no']],note:'Leave works, but Leeds hotels are already expensive. Better treated as a late-bargain Palace-style opportunity.',sameDay:true,rhinos:false},
+  {id:'eve-h',kind:'home',sort:'2027-01-01',date:'Fri 1 Jan',opp:'Everton',score:5.0,status:'fixed',mu:'Brighton (A)',cup:'None',days:[['FRI','9h','ok']],note:'Fixed 20:00. Ticket Exchange could be friendly, but New Year Cork–Manchester fares make the whole trip unattractive.',sameDay:false,rhinos:false},
+  {id:'mci-h',kind:'home',sort:'2027-01-06',date:'Wed 6 Jan',opp:'Man City',score:4.0,status:'fixed',mu:'Newcastle (H)',cup:'Low',days:[['TUE','12h','ok'],['WED','24h','no'],['THU','24h','no']],note:'Fixed Wednesday 20:15. Attractive game, but it breaches the 12h leave cap. Hotel was excellent value; flights later rose to ~€120.',sameDay:false,rhinos:false},
+  {id:'che-h',kind:'home',sort:'2027-01-23',date:'Sat 23 Jan',opp:'Chelsea',score:7.5,status:'provisional',mu:'Liverpool (H)',cup:'None',days:[['FRI','9h','ok'],['SAT','0h','zero'],['SUN','0h','zero'],['MON','0h','zero']],note:'Exceptionally robust rota across likely TV slots. United–Liverpool in Manchester should be a headline pick and may separate travel demand.',sameDay:true,rhinos:false},
+  {id:'bou-h',kind:'home',sort:'2027-02-06',date:'Sat 6 Feb',opp:'Bournemouth',score:9.5,status:'provisional',mu:'Chelsea (H)',cup:'None',days:[['FRI','0h','zero'],['SAT','0h','zero'],['SUN','12h','conditional'],['MON','24h','no']],note:'Top-tier target. Fri/Sat cost no leave; Sunday is still acceptable and could drop to 0h if kickoff is early enough for the 20:55 MAN→ORK.',sameDay:true,rhinos:true},
+  {id:'avl-h',kind:'home',sort:'2027-02-20',date:'Sat 20 Feb',opp:'Aston Villa',score:9.0,status:'provisional',mu:'Forest (A)',cup:'None',days:[['FRI','12h','ok'],['SAT','0h','zero'],['SUN','12h','conditional'],['MON','24h','no']],note:'Very clean weekend. Good travel month and manageable ticket demand. Strong unless Sky pushes it to Monday.',sameDay:true,rhinos:true},
+  {id:'hul-h',kind:'home',sort:'2027-03-03',date:'Wed 3 Mar',opp:'Hull',score:9.0,status:'provisional',mu:'Sunderland (A)',cup:'Medium',days:[['TUE','12h','ok'],['WED','12h','ok'],['THU','21h','no']],note:'Probably the best membership/Ticket Exchange play. Tuesday or Wednesday fit the cap; Thursday does not.',sameDay:false,rhinos:true},
+  {id:'bha-h',kind:'home',sort:'2027-03-13',date:'Sat 13 Mar',opp:'Brighton',score:9.5,status:'provisional',mu:'Everton (H)',cup:'None',days:[['FRI','12h','ok'],['SAT','0h','zero'],['SUN','0h*','conditional'],['MON','24h','no']],note:'Strong working prediction: if Brighton reach the Conference League R16, this should move off Saturday and Sunday 14:00 is the attractive landing spot. At 14:00, same-day travel can potentially make it 0h AL; otherwise Monday travel home costs 12h. St Patrick’s week also makes taking the whole week off unusually attractive.',sameDay:true,rhinos:true,prediction:'Likely SUN if Brighton reach Conference R16'},
+  {id:'nfo-h',kind:'home',sort:'2027-04-10',date:'Sat 10 Apr',opp:'Forest',score:9.5,status:'provisional',mu:'Hull (H)',cup:'None',days:[['FRI','0h','zero'],['SAT','0h','zero'],['SUN','12h','conditional'],['MON','24h','no']],note:'Top-tier target. Fri/Sat cost no leave, Sunday is acceptable and may become 0h with an early kickoff + same-day return.',sameDay:true,rhinos:true},
+  {id:'liv-h',kind:'home',sort:'2027-04-24',date:'Sat 24 Apr',opp:'Liverpool',score:2.5,status:'provisional',mu:'Crystal Palace (H)',cup:'HIGH',days:[['FRI','12h','ok'],['SAT','0h','zero'],['SUN','12h','conditional'],['MON','24h','no']],note:'Avoid pre-planning: FA Cup semi-final weekend plus one of the hardest tickets of the season.',sameDay:true,rhinos:true},
+  {id:'ars-h',kind:'home',sort:'2027-05-08',date:'Sat 8 May',opp:'Arsenal',score:5.8,status:'provisional',mu:'Bournemouth (A)',cup:'None',days:[['FRI','9h','ok'],['SAT','0h','zero'],['SUN','0h','zero'],['MON','0h','zero']],note:'Rota is brilliant across all likely slots. Ticket difficulty, not travel, is what drags the score down.',sameDay:true,rhinos:true},
+  {id:'sun-h',kind:'home',sort:'2027-05-23',date:'Sun 23 May',opp:'Sunderland',score:5.0,status:'fixed',mu:'Spurs (A)',cup:'HIGH',days:[['SUN','12h','ok']],note:'Final home game and immediately after the FA Cup Final. Ticket demand and cup scheduling risk make it messy.',sameDay:false,rhinos:true},
+
+  {id:'mci-a',kind:'away',sort:'2026-12-02',date:'Wed 2 Dec',opp:'Man City (A)',score:3.5,status:'provisional',mu:'—',cup:'None',days:[['TUE','24–36h','no'],['WED','24–36h','no'],['THU','0h*','zero']],note:'€80 home-end ticket and Medlock bookings are attractive, but Tue/Wed need too much leave. Thursday is effectively ruled out by City’s European schedule.',sameDay:false,rhinos:false},
+  {id:'eve-a',kind:'away',sort:'2027-02-10',date:'Wed 10 Feb',opp:'Everton (A)',score:8.0,status:'provisional',mu:'—',cup:'Low',days:[['TUE','12h','ok'],['WED','12h','ok'],['THU','21h','no']],note:'A genuinely good away option if it lands Tuesday or Wednesday. Thursday breaches the cap.',sameDay:false,rhinos:true},
+  {id:'ful-a',kind:'away',sort:'2027-02-27',date:'Sat 27 Feb',opp:'Fulham (A)',score:9.0,status:'provisional',mu:'—',cup:'None',days:[['FRI','0h','zero'],['SAT','0h','zero'],['SUN','12h','conditional'],['MON','24h','no']],note:'Huge upside if TNT gives it Saturday 12:30: Cork→Heathrow→Craven Cottage→Heathrow→Cork becomes a realistic same-day trip with no hotel and no annual leave.',sameDay:true,rhinos:true,prediction:'TNT 12:30 would be jackpot'}
+];
+
+let currentFilter='all';
+let currentSort='date';
+
+function scoreClass(s){return s>=9?'top':s>=7.5?'good':s>=6?'mid':'low'}
+function cupClass(c){return c==='HIGH'?'cup-high':c==='Medium'?'cup-med':''}
+function dayHTML(d){const [label,hours,state]=d; return `<div class="day ${state}"><span class="d">${label}</span><span class="h">${hours}</span></div>`}
+function savedState(id){try{return JSON.parse(localStorage.getItem('trip-'+id)||'{}')}catch(e){return {}}}
+function saveState(id,obj){localStorage.setItem('trip-'+id,JSON.stringify(obj))}
+
+function fixtureHTML(f){
+ const saved=savedState(f.id);
+ const hasZero=f.days.some(x=>x[2]==='zero'||x[2]==='conditional'&&x[1].startsWith('0'));
+ const tags=[
+   `<span class="tag ${f.status==='fixed'?'fixed':''}">${f.status==='fixed'?'TV FIXED':'TV PROVISIONAL'}</span>`,
+   f.cup!=='None'&&f.cup!=='None*'?`<span class="tag ${cupClass(f.cup)}">FA CUP ${f.cup}</span>`:'',
+   f.rhinos?`<span class="tag rhino">RHINOS TBD</span>`:'',
+   f.sameDay?`<span class="tag same">EARLY SUN = SAME-DAY OPTION</span>`:'',
+   f.prediction?`<span class="tag pred">${f.prediction}</span>`:''
+ ].join('');
+ return `<article class="fixture" data-id="${f.id}" data-kind="${f.kind}" data-score="${f.score}" data-sort="${f.sort}" data-zero="${hasZero}" data-fixed="${f.status==='fixed'}" data-cup="${f.cup==='HIGH'||f.cup==='Medium'}">
+   <div class="fixture-main" onclick="toggleFixture('${f.id}')">
+      <div class="datebox"><small>${f.status==='fixed'?'confirmed':'current date'}</small><b>${f.date}</b></div>
+      <div><div class="opponent">${f.opp}</div><div class="subline">Man Utd same round: ${f.mu}</div></div>
+      <div class="score ${scoreClass(f.score)}">${f.score.toFixed(1)}<em>/10</em></div>
+      <div class="days">${f.days.map(dayHTML).join('')}</div>
+      <div class="meta">${tags}</div>
+   </div>
+   <div class="details">
+      <div class="detail-box"><h3>Trip view</h3><p>${f.note}</p></div>
+      <div class="detail-box"><h3>Your notes</h3><textarea class="notes" id="note-${f.id}" placeholder="Hotel hold, flight price, ballot result, etc...">${saved.note||''}</textarea><div class="save-state">
+        ${['Hotel held','Flights booked','Ballot entered','Ticket secured'].map(x=>`<button class="state-btn ${saved[x]?'on':''}" onclick="event.stopPropagation();toggleState('${f.id}','${x}',this)">${x}</button>`).join('')}
+        <button class="state-btn" onclick="event.stopPropagation();saveNote('${f.id}',this)">Save note</button>
+      </div></div>
+   </div>
+ </article>`
+}
+
+function render(){
+ const sorted=[...fixtures].sort((a,b)=>currentSort==='score'?b.score-a.score:a.sort.localeCompare(b.sort));
+ const home=sorted.filter(f=>f.kind==='home');
+ const away=sorted.filter(f=>f.kind==='away');
+ document.getElementById('homeList').innerHTML=home.map(fixtureHTML).join('') || '<div class="empty">No matching home fixtures.</div>';
+ document.getElementById('awayList').innerHTML=away.map(fixtureHTML).join('') || '<div class="empty">No matching away fixtures.</div>';
+ applyFilter();
+}
+function toggleFixture(id){const el=document.querySelector(`[data-id="${id}"]`); el.classList.toggle('open')}
+function toggleState(id,key,btn){const s=savedState(id);s[key]=!s[key];saveState(id,s);btn.classList.toggle('on',!!s[key])}
+function saveNote(id,btn){const s=savedState(id);s.note=document.getElementById('note-'+id).value;saveState(id,s);const old=btn.textContent;btn.textContent='Saved ✓';setTimeout(()=>btn.textContent=old,900)}
+function matches(el){
+ if(currentFilter==='all') return true;
+ if(currentFilter==='home') return el.dataset.kind==='home';
+ if(currentFilter==='away') return el.dataset.kind==='away';
+ if(currentFilter==='top') return Number(el.dataset.score)>=8;
+ if(currentFilter==='zero') return el.dataset.zero==='true';
+ if(currentFilter==='fixed') return el.dataset.fixed==='true';
+ if(currentFilter==='cup') return el.dataset.cup==='true';
+ return true;
+}
+function applyFilter(){
+ document.querySelectorAll('.fixture').forEach(el=>el.classList.toggle('hidden',!matches(el)));
+ ['homeList','awayList'].forEach(id=>{
+   const list=document.getElementById(id); if(!list) return;
+   const any=[...list.querySelectorAll('.fixture')].some(x=>!x.classList.contains('hidden'));
+   let empty=list.querySelector('.filter-empty');
+   if(!any&&!empty){empty=document.createElement('div');empty.className='empty filter-empty';empty.textContent='No fixtures match this filter.';list.appendChild(empty)}
+   if(any&&empty) empty.remove();
+ });
+}
+document.querySelectorAll('.filter-btn').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');currentFilter=btn.dataset.filter;applyFilter()}));
+document.getElementById('sortSelect').addEventListener('change',e=>{currentSort=e.target.value;render()});
+render();
+</script>
+</body>
+</html>
