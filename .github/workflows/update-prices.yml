@@ -7,17 +7,18 @@ on:
   push:
     paths:
       - 'scripts/update-prices.mjs'
+      - 'scripts/update-flights.mjs'
       - 'package.json'
       - '.github/workflows/update-prices.yml'
 
 concurrency:
-  group: reseller-price-refresh
+  group: trip-data-refresh
   cancel-in-progress: false
 
 jobs:
   refresh-prices:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 15
     permissions:
       contents: write
 
@@ -38,14 +39,22 @@ jobs:
         id: scrape
         run: npm run update-prices
 
-      - name: Price refresh summary
+      - name: Pull latest Ryanair timetables
+        id: flights
+        env:
+          FORCE_FLIGHTS: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
+        run: npm run update-flights
+
+      - name: Trip-data refresh summary
         if: always()
         shell: bash
         env:
           SCRAPE_OUTCOME: ${{ steps.scrape.outcome }}
+          FLIGHT_OUTCOME: ${{ steps.flights.outcome }}
         run: |
-          echo '## Reseller price refresh' >> "$GITHUB_STEP_SUMMARY"
-          echo "Scrape step: **${SCRAPE_OUTCOME}**" >> "$GITHUB_STEP_SUMMARY"
+          echo '## Trip data refresh' >> "$GITHUB_STEP_SUMMARY"
+          echo "Reseller scrape: **${SCRAPE_OUTCOME}**" >> "$GITHUB_STEP_SUMMARY"
+          echo "Ryanair timetable step: **${FLIGHT_OUTCOME}**" >> "$GITHUB_STEP_SUMMARY"
           echo '' >> "$GITHUB_STEP_SUMMARY"
           if [[ -f data/prices.json ]]; then
             node <<'NODE' >> "$GITHUB_STEP_SUMMARY"
@@ -56,27 +65,45 @@ jobs:
           const fresh=x=>rows.filter(r=>typeof r?.[x]?.price==='number' && !r[x].stale).length;
           const stale=x=>rows.filter(r=>typeof r?.[x]?.price==='number' && r[x].stale).length;
           const statuses=x=>rows.reduce((a,r)=>{const s=r?.[x]?.status||'missing';a[s]=(a[s]||0)+1;return a;},{});
+          console.log(`### Reseller prices`);
           console.log(`Price file timestamp: **${p.generatedAt||'unknown'}**`);
           console.log(`\n- Champions Travel: **${quoted('champions')} quoted** (${fresh('champions')} fresh / ${stale('champions')} retained)`);
           console.log(`- P1 Travel: **${quoted('p1')} quoted** (${fresh('p1')} fresh / ${stale('p1')} retained)`);
           console.log(`- FX: USD ${p.fx?.USD??'unavailable'} · GBP ${p.fx?.GBP??'unavailable'} per EUR`);
-          console.log(`\n### CT scrape statuses\n\`${JSON.stringify(statuses('champions'))}\``);
-          console.log(`\n### P1 scrape statuses\n\`${JSON.stringify(statuses('p1'))}\``);
+          console.log(`\nCT statuses: \`${JSON.stringify(statuses('champions'))}\``);
+          console.log(`\nP1 statuses: \`${JSON.stringify(statuses('p1'))}\``);
           NODE
           else
             echo 'data/prices.json was not produced.' >> "$GITHUB_STEP_SUMMARY"
           fi
+          echo '' >> "$GITHUB_STEP_SUMMARY"
+          if [[ -f data/flights.json ]]; then
+            node <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs=require('fs');
+          const f=JSON.parse(fs.readFileSync('data/flights.json','utf8'));
+          const routes=Object.keys(f.routes||{}).length;
+          const dates=Object.values(f.routes||{}).reduce((n,r)=>n+Object.keys(r||{}).length,0);
+          const flights=Object.values(f.routes||{}).reduce((n,r)=>n+Object.values(r||{}).reduce((m,d)=>m+(d?.length||0),0),0);
+          console.log(`### Ryanair schedules`);
+          console.log(`Timetable timestamp: **${f.generatedAt||'not refreshed yet'}**`);
+          console.log(`\n- Routes loaded: **${routes}**`);
+          console.log(`- Flight dates loaded: **${dates}**`);
+          console.log(`- Individual flights loaded: **${flights}**`);
+          console.log(`- Last refresh requests: ${f.status?.successful??0} successful / ${f.status?.failed??0} failed / ${f.status?.preservedMonths??0} failed months retained`);
+          if ((f.status?.failures||[]).length) console.log(`\nFailures: \`${JSON.stringify(f.status.failures)}\``);
+          NODE
+          fi
 
-      - name: Commit updated price feed
+      - name: Commit updated trip-data feeds
         if: success()
         run: |
-          if [[ -n "$(git status --porcelain data/prices.json)" ]]; then
+          if [[ -n "$(git status --porcelain data/prices.json data/flights.json)" ]]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data/prices.json
-            git commit -m "Update reseller prices"
+            git add data/prices.json data/flights.json
+            git commit -m "Update trip data"
             git pull --rebase origin "${GITHUB_REF_NAME}"
             git push origin HEAD:"${GITHUB_REF_NAME}"
           else
-            echo "No price changes to commit"
+            echo "No trip-data changes to commit"
           fi
