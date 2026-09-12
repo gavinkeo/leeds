@@ -1,0 +1,16 @@
+{
+  "generatedAt": null,
+  "source": "Ryanair timetable API",
+  "localTimes": true,
+  "refreshWindowHours": 12,
+  "routes": {},
+  "status": {
+    "requests": 0,
+    "successful": 0,
+    "failed": 0,
+    "preservedMonths": 0,
+    "flightsLoaded": 0,
+    "failures": []
+  },
+  "coverage": {}
+}

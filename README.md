@@ -1,21 +1,64 @@
-# Leeds Trip Planner v15
+# Leeds Trip Planner v16
 
-## Important price-updater fix
-The previous scraper assumed GitHub's runner would see euro prices. GitHub-hosted runners can be geolocated outside Ireland, so reseller pages may return `$` or `£` instead. That produced a successful workflow with **0 quoted fixtures** because the parser only recognised `€`.
+## v16 changes
 
-v15 fixes that by:
-- recognising EUR / USD / GBP symbols and codes;
-- converting USD/GBP quotes back to EUR using a live Frankfurter/ECB exchange rate;
-- using a normal Chrome user-agent and better request headers;
-- detecting challenge/block pages;
-- treating parse misses as diagnostic states rather than silently wiping data;
-- **never erasing a previously good numeric price just because a scrape returned no price**;
-- showing fresh vs retained counts and detailed CT/P1 scrape statuses in the Actions summary.
+### Flight-aware annual leave
+The planner no longer assumes annual leave is simply the match day plus the following day.
 
-## What to replace in the repo
-1. Replace `scripts/update-prices.mjs` with the v15 version.
-2. Replace `data/prices.json` with the v15 version to restore current known quotes immediately.
-3. Replace `.github/workflows/update-prices.yml` using GitHub's editor (because `.github` is hidden in many upload dialogs).
-4. Run **Actions → Update reseller prices → Run workflow** once.
+It now builds a travel window from the actual Ryanair timetable:
+- finds the latest usable Cork outbound that gets you to the destination with a realistic ground-transfer buffer;
+- if the match-day flight is too late, it automatically moves the outbound to the previous available flight (searching up to three days earlier);
+- always treats the following day as the normal travel-home day unless a genuine same-day return is possible;
+- counts the previous night shift too when the outbound is before 14:00, because finishing a night shift and then taking a morning/early-afternoon flight is not treated as realistic;
+- counts every scheduled shift that overlaps the resulting travel window.
 
-A healthy run should show non-zero quoted counts. If some figures are retained rather than fresh, the status breakdown will now explain whether that provider was blocked, missing, or could not be parsed.
+So a Tuesday 20:00 match during a Mon/Tue/Wed night block can correctly require **36h annual leave**.
+
+### Dynamic Ryanair schedules
+`data/flights.json` is generated from Ryanair's published timetable API for the Cork routes used by the planner:
+- ORK ↔ MAN
+- ORK ↔ LPL
+- ORK ↔ BHX
+- ORK ↔ STN
+
+The GitHub Action still runs hourly for Champions Travel / P1 Travel prices. Ryanair timetable data is refreshed every 12 hours (and is forced on every manual workflow run). A failed timetable request preserves the last known good month rather than deleting it.
+
+This is important for routes such as Birmingham: BHX may be geographically ideal for Villa/Coventry, but the actual departure time can make it a poor match-trip route.
+
+### Reseller capsules
+Fixture-row capsules now use the full names:
+- **Champions Travel €…**
+- **P1 Travel €…**
+
+If both providers have prices, both are shown.
+
+### Tap a fixture
+Expanding a fixture now shows:
+- preferred Cork airport route;
+- actual outbound/return Ryanair times for each possible TV slot;
+- whether an earlier-day outbound is required;
+- recalculated annual leave for that exact travel plan;
+- onward travel notes;
+- ticket route / away-allocation context;
+- live reseller prices.
+
+## GitHub files
+Upload these at repository root:
+
+```text
+index.html
+package.json
+data/
+  prices.json
+  flights.json
+scripts/
+  update-prices.mjs
+  update-flights.mjs
+.github/
+  workflows/
+    update-prices.yml
+```
+
+If your file picker hides `.github`, edit the existing `.github/workflows/update-prices.yml` directly in GitHub and replace its contents with the v16 workflow.
+
+After deploying v16, run **Actions → Update reseller prices → Run workflow** once. A manual run forces a full Ryanair timetable refresh immediately.
