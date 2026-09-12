@@ -127,7 +127,7 @@ h1{margin:0;font-size:clamp(1.75rem,4vw,2.9rem);line-height:.98;letter-spacing:-
     <b>Ratings:</b> targetability, not glamour. Away scores are deliberately harsh: realistic ticket access/allocation and Cork logistics carry more weight than a nice rota. Home scores weight ballot/Exchange prospects, travel cost and annual-leave fit. <br><br><b>Status:</b> unconfirmed league games are labelled <b>PENDING TV</b> in the left date column; confirmed dates/kickoffs are labelled <b>CONFIRMED</b>. Weekend day tiles show Friday–Monday possibilities and midweeks Tuesday–Thursday, with the actual date in brackets and annual-leave cost underneath.<br><br>
     <b>Travel:</b> tap any league fixture to open its Cork-first travel plan: preferred Ryanair gateway, onward leg, ticket route/allocation and best annual-leave outcome. Routes are planning aids rather than fare guarantees; schedules can change.<br><br>
     <b>FA Cup holders:</b> 3rd Round 9 Jan · 4th Round 13 Feb · 5th Round 6 Mar · Quarter-final 3 Apr · Semi-final 24 Apr · Final 22 May. These remain placeholders until Leeds' involvement, opponent and venue are known.<br><br>
-    <b>Sources:</b> Leeds fixture list/current fixtures · FA Cup round dates · Cork Airport/Ryanair route schedules for direct UK gateways · live reseller prices from Champions Travel and P1 Travel, refreshed via GitHub Actions into <b>data/prices.json</b>. Updated 12 Sep 2026.
+    <b>Sources:</b> Leeds fixture list/current fixtures · FA Cup round dates · Cork Airport/Ryanair route schedules for direct UK gateways · live reseller prices from Champions Travel and P1 Travel, refreshed <b>hourly</b> via GitHub Actions into <b>data/prices.json</b>. Updated 12 Sep 2026.
   </div>
 </main>
 
@@ -338,7 +338,22 @@ function priceCapsule(provider,entry){if(!entry)return ''; const label=provider=
 function priceCapsules(f){ if(f.kind==='cup') return ''; const fp=fixturePriceData(f); if(!LIVE_PRICES.generatedAt) return `<span class="tag price-loading">Prices…</span>`; if(!fp) return ''; const bits=[['champions',fp.champions],['p1',fp.p1]].filter(([,entry])=>entry&&entry.price!=null).map(([key,entry])=>priceCapsule(key,entry)).join(''); return bits; }
 function priceDetailHTML(f){ if(f.kind==='cup') return ''; const fp=fixturePriceData(f); if(!LIVE_PRICES.generatedAt){ return `<div class="price-detail"><h4>Live reseller prices</h4><p>Loading Champions Travel and P1 prices…</p></div>`;} if(!fp) return `<div class="price-detail"><h4>Live reseller prices</h4><p>No reseller data loaded for this fixture yet.</p></div>`; const rows=[]; [['champions','Champions Travel'],['p1','P1 Travel']].forEach(([key,label])=>{ const e=fp[key]; if(!e)return; const chip=priceCapsule(key,e); const extra=e.price==null?'Not currently listed':(e.stale?'Last known price · latest refresh failed':'Lowest live price found'); rows.push(`<div class="price-detail-row">${chip}<span>${label} · ${extra}</span></div>`); }); const stamp=fp.checkedAt||LIVE_PRICES.generatedAt; return `<div class="price-detail"><h4>Live reseller prices</h4>${rows.length?rows.join(''):'<p>No current reseller listing found.</p>'}<div class="price-stamp">Last checked: ${formatStamp(stamp)}</div></div>`;}
 function formatStamp(s){ if(!s) return '—'; const d=new Date(s); if(isNaN(d)) return s; return d.toLocaleString(undefined,{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}); }
-function renderPriceStamp(){ const el=document.getElementById('priceStamp'); if(!el) return; const count=Object.values(LIVE_PRICES.fixtures||{}).reduce((n,f)=>n+(['champions','p1'].some(k=>f[k]&&f[k].price!=null)?1:0),0); if(!LIVE_PRICES.generatedAt){ el.textContent='Reseller prices: no data loaded'; return;} const isFallback=LIVE_PRICES===EMBEDDED_PRICE_FALLBACK; el.textContent=`Reseller prices ${isFallback?'seeded':'auto-refreshed'} · ${formatStamp(LIVE_PRICES.generatedAt)} · ${count} fixtures with a live quote`; }
+function renderPriceStamp(){
+  const el=document.getElementById('priceStamp'); if(!el) return;
+  const count=Object.values(LIVE_PRICES.fixtures||{}).reduce((n,f)=>n+(['champions','p1'].some(k=>f[k]&&f[k].price!=null)?1:0),0);
+  if(!LIVE_PRICES.generatedAt){ el.textContent='⚠ Reseller prices: no data loaded'; el.style.color='#ffd1d1'; return; }
+  const stampMs=Date.parse(LIVE_PRICES.generatedAt); const ageHours=Number.isFinite(stampMs)?Math.max(0,(Date.now()-stampMs)/3600000):Infinity;
+  const stale=ageHours>2;
+  const isFallback=LIVE_PRICES===EMBEDDED_PRICE_FALLBACK;
+  const ageText=ageHours<1?`${Math.max(1,Math.round(ageHours*60))}m old`:ageHours<24?`${ageHours.toFixed(1)}h old`:`${Math.floor(ageHours/24)}d old`;
+  if(stale){
+    el.textContent=`⚠ PRICES STALE · ${ageText} · last check ${formatStamp(LIVE_PRICES.generatedAt)} · ${count} quoted fixtures`;
+    el.style.color='#ffd1d1';
+  }else{
+    el.textContent=`Prices ${isFallback?'cached':'auto-refreshed'} · ${ageText} · ${count} quoted fixtures`;
+    el.style.color='#dce8f4';
+  }
+}
 async function loadPrices(){ try{ const res=await fetch('./data/prices.json?ts='+Date.now(),{cache:'no-store'}); if(!res.ok) throw new Error('price file missing'); const fresh=await res.json(); if(fresh&&fresh.fixtures) LIVE_PRICES=fresh; }catch(e){ LIVE_PRICES=EMBEDDED_PRICE_FALLBACK; } renderPriceStamp(); render(); }
 
 const allItems=[...fixtures,...cupRounds];

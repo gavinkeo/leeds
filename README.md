@@ -1,18 +1,39 @@
-# Leeds Trip Planner v12
+# Leeds Trip Planner v13
 
-## v12 UI cleanup
-- Fixture-card capsule area now shows **only reseller prices**: `CT €...` and `P1 €...`.
-- If both resellers have a price for the same fixture, both capsules are shown.
-- Full-season tracker, watchlist and TV release radar have moved **below the fixture timeline**.
-- The long hero description has been removed.
-- Tapping a fixture now opens a proper **Travel logistics** panel with Cork flight gateway, onward journey, return approach, ticket route/allocation and best annual-leave outcome.
-- Added **Cheapest reseller first** sorting.
-- Saved trip state stays inside the expanded fixture instead of cluttering the main row.
+## Important: upload the whole repo structure
+The automatic Champions Travel / P1 updater is a GitHub Actions workflow. GitHub only sees it when this exact path exists in the repository:
 
-## Dynamic reseller prices
-The existing live-price setup remains:
-- `scripts/update-prices.mjs`
-- `data/prices.json`
-- `.github/workflows/update-prices.yml`
+```text
+.github/workflows/update-prices.yml
+```
 
-GitHub Actions refreshes the reseller feed every 6 hours. `index.html` also contains a fallback snapshot so the page still renders prices if the JSON feed cannot be fetched locally.
+The v13 ZIP is **repo-root ready**: `index.html`, `.github`, `data`, `scripts`, and `package.json` are all at the top level of the ZIP rather than inside another wrapper folder.
+
+## Reseller prices
+- Champions Travel + P1 prices are refreshed **hourly** at minute 17 UTC.
+- You can also run it immediately from **Actions → Update reseller prices → Run workflow**.
+- The website warns clearly when the feed is more than **2 hours old**.
+- Temporary CT/P1 fetch failures preserve the last known good price rather than blanking it.
+- Each GitHub Actions run now has a summary showing how many CT/P1 prices were found and whether either provider had fetch failures.
+
+## Files that must be in the GitHub repo
+```text
+index.html
+package.json
+data/
+  prices.json
+scripts/
+  update-prices.mjs
+.github/
+  workflows/
+    update-prices.yml
+```
+
+## First run
+After uploading/committing the files:
+1. Open the repository's **Actions** tab.
+2. Select **Update reseller prices**.
+3. Choose **Run workflow** once.
+4. When it goes green, `data/prices.json` will be committed automatically and the website will pick it up.
+
+GitHub scheduled workflows are best-effort and may start a few minutes after :17, but an age over two hours is now visibly flagged on the site.
