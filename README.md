@@ -62,3 +62,16 @@ scripts/
 If your file picker hides `.github`, edit the existing `.github/workflows/update-prices.yml` directly in GitHub and replace its contents with the v16 workflow.
 
 After deploying v16, run **Actions → Update reseller prices → Run workflow** once. A manual run forces a full Ryanair timetable refresh immediately.
+
+## v18 confirmed-fixture flight capsule
+Confirmed league fixtures now show the optimal Ryanair itinerary directly in the main capsule row beside Champions Travel / P1 Travel prices.
+
+- Evening Leeds home games: match-day ORK→MAN, next-day MAN→ORK.
+- Daytime confirmed games: a genuine same-day return is selected when the timetable supports it and it improves the trip.
+- Confirmed away games: the planner uses the best viable Ryanair gateway already configured for that opponent and shows any required pre-match travel date.
+- The capsule includes outbound time, return time and the calculated annual-leave hit.
+- It updates automatically when `data/flights.json` refreshes.
+
+
+## v18 UI change
+Confirmed fixtures now show the optimal flight plan as three compact capsules: one outbound flight, one return flight, and one annual-leave capsule. This replaces the long combined itinerary capsule.
