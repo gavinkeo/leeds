@@ -1,4 +1,4 @@
-# Leeds Trip Planner v10
+# Leeds Trip Planner v11
 
 This version adds **live reseller pricing** from:
 - **Champions Travel**
@@ -26,3 +26,6 @@ This version adds **live reseller pricing** from:
 - GitHub Pages is static, so the site cannot scrape Champions/P1 directly in the browser.
 - The workaround is the right one: scrape in GitHub Actions, write results into `data/prices.json`, then have the page load that file.
 - If a fixture is not currently listed by one of the resellers, the site simply won’t show a live price capsule for that provider.
+
+## v11 fallback fix
+The current reseller snapshot is also embedded inside `index.html`. That means prices still render when the page is opened locally or when `data/prices.json` is temporarily unreachable. On GitHub Pages, the scheduled workflow remains the dynamic source and replaces the embedded snapshot whenever it refreshes.
