@@ -40,203 +40,203 @@ const FIXTURES = [
 ];
 
 const CHAMPIONS_PAGE_SLUG = {
-  'Arsenal': 'arsenal',
-  'Aston Villa': 'aston-villa',
-  'Brentford': 'brentford',
-  'Chelsea': 'chelsea',
-  'Crystal Palace': 'crystal-palace',
-  'Fulham': 'fulham',
-  'Leeds United': 'leeds-united',
-  'Liverpool FC': 'liverpool-fc',
-  'Manchester City': 'manchester-city',
-  'Manchester United': 'manchester-united',
+  'Arsenal': 'arsenal', 'Aston Villa': 'aston-villa', 'Brentford': 'brentford',
+  'Chelsea': 'chelsea', 'Crystal Palace': 'crystal-palace', 'Fulham': 'fulham',
+  'Leeds United': 'leeds-united', 'Liverpool FC': 'liverpool-fc',
+  'Manchester City': 'manchester-city', 'Manchester United': 'manchester-united',
   'Tottenham Hotspur': 'tottenham-hotspur'
 };
 
-const CHAMPIONS_NAME = {
-  'Leeds United': 'Leeds United',
-  'Newcastle United': 'Newcastle United',
-  'Crystal Palace': 'Crystal Palace',
-  'Arsenal': 'Arsenal',
-  'Manchester United': 'Manchester United',
-  'Sunderland': 'Sunderland',
-  'Bournemouth': 'Bournemouth',
-  'Tottenham Hotspur': 'Tottenham Hotspur',
-  'Chelsea': 'Chelsea',
-  'Coventry City': 'Coventry City',
-  'Manchester City': 'Manchester City',
-  'Ipswich Town': 'Ipswich Town',
-  'Liverpool FC': 'Liverpool FC',
-  'Fulham': 'Fulham',
-  'Aston Villa': 'Aston Villa',
-  'Hull City': 'Hull City',
-  'Everton': 'Everton',
-  'Brighton & Hove Albion': 'Brighton & Hove Albion',
-  'Nottingham Forest': 'Nottingham Forest',
-  'Brentford': 'Brentford'
-};
-
 const P1_SLUGS = {
-  'Leeds United': ['leeds-united'],
-  'Newcastle United': ['newcastle-united', 'newcastle'],
-  'Crystal Palace': ['crystal-palace'],
-  'Arsenal': ['arsenal'],
-  'Manchester United': ['manchester-united'],
-  'Sunderland': ['sunderland'],
-  'Bournemouth': ['bournemouth'],
-  'Tottenham Hotspur': ['tottenham-hotspur', 'tottenham'],
-  'Chelsea': ['chelsea'],
-  'Coventry City': ['coventry-city', 'coventry'],
-  'Manchester City': ['manchester-city'],
-  'Ipswich Town': ['ipswich-town', 'ipswich'],
-  'Liverpool FC': ['liverpool-fc', 'liverpool'],
-  'Fulham': ['fulham'],
-  'Aston Villa': ['aston-villa'],
-  'Hull City': ['hull-city', 'hull'],
+  'Leeds United': ['leeds-united'], 'Newcastle United': ['newcastle-united','newcastle'],
+  'Crystal Palace': ['crystal-palace'], 'Arsenal': ['arsenal'],
+  'Manchester United': ['manchester-united'], 'Sunderland': ['sunderland'],
+  'Bournemouth': ['bournemouth'], 'Tottenham Hotspur': ['tottenham-hotspur','tottenham'],
+  'Chelsea': ['chelsea'], 'Coventry City': ['coventry-city','coventry'],
+  'Manchester City': ['manchester-city'], 'Ipswich Town': ['ipswich-town','ipswich'],
+  'Liverpool FC': ['liverpool-fc','liverpool'], 'Fulham': ['fulham'],
+  'Aston Villa': ['aston-villa'], 'Hull City': ['hull-city','hull'],
   'Everton': ['everton'],
-  'Brighton & Hove Albion': ['brighton-hove-albion', 'brighton-and-hove-albion', 'brighton'],
-  'Nottingham Forest': ['nottingham-forest', 'forest'],
-  'Brentford': ['brentford']
+  'Brighton & Hove Albion': ['brighton-hove-albion','brighton-and-hove-albion','brighton'],
+  'Nottingham Forest': ['nottingham-forest','forest'], 'Brentford': ['brentford']
 };
 
-const USER_AGENT = 'Mozilla/5.0 (compatible; LeedsTripPlannerBot/1.0; +https://github.com/)';
+const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36';
 const fetchCache = new Map();
+let FX = { EUR: 1, USD: null, GBP: null };
 
-function normalize(text = '') {
-  return text.replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
-}
-
-function escapeRegExp(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function parseEuro(raw) {
+function normalize(text='') { return text.replace(/\u00a0/g,' ').replace(/\s+/g,' ').trim(); }
+function escapeRegExp(str) { return str.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+function number(raw) {
   if (raw == null) return null;
-  const clean = String(raw).replace(/[^\d.,]/g, '').replace(/,(?=\d{3}(\D|$))/g, '').replace(',', '.');
-  const num = Number(clean);
-  return Number.isFinite(num) ? num : null;
+  const cleaned = String(raw).replace(/[^\d.,]/g,'').replace(/,(?=\d{3}(?:\D|$))/g,'').replace(',','.');
+  const n = Number(cleaned); return Number.isFinite(n) ? n : null;
+}
+function codeFromCurrency(token='') {
+  const t = token.toUpperCase();
+  if (t.includes('€') || t === 'EUR') return 'EUR';
+  if (t.includes('$') || t === 'USD') return 'USD';
+  if (t.includes('£') || t === 'GBP') return 'GBP';
+  return null;
+}
+function toEUR(amount, currency) {
+  if (amount == null || !currency) return null;
+  if (currency === 'EUR') return Math.round(amount);
+  const rate = FX[currency];
+  if (!rate) return null;
+  // Frankfurter/ECB rate is units of foreign currency per €1.
+  return Math.round(amount / rate);
+}
+function isChallenge(page) {
+  const s = `${page.status} ${page.norm.slice(0,1400)}`.toLowerCase();
+  return /cloudflare|captcha|verify you are human|checking your browser|access denied|bot detection|challenge-platform/.test(s);
 }
 
 async function fetchText(url) {
   if (fetchCache.has(url)) return fetchCache.get(url);
-  const result = await (async () => {
+  const result = await (async()=>{
     try {
-      const res = await fetch(url, { headers: { 'user-agent': USER_AGENT, 'accept-language': 'en-IE,en;q=0.9' } });
+      const res = await fetch(url, {
+        redirect:'follow',
+        headers:{
+          'user-agent':UA,
+          'accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+          'accept-language':'en-IE,en-GB;q=0.9,en;q=0.8',
+          'cache-control':'no-cache',
+          'pragma':'no-cache',
+          'upgrade-insecure-requests':'1'
+        }
+      });
       const text = await res.text();
-      return { ok: res.ok, status: res.status, url: res.url, text, norm: normalize(load(text)('body').text()) };
-    } catch (error) {
-      return { ok: false, status: 0, url, text: '', norm: '', error: String(error) };
+      const $ = load(text);
+      const norm = normalize($('body').text());
+      return {ok:res.ok,status:res.status,url:res.url,text,norm,title:normalize($('title').text())};
+    } catch(error) {
+      return {ok:false,status:0,url,text:'',norm:'',title:'',error:String(error)};
     }
   })();
-  fetchCache.set(url, result);
-  return result;
+  fetchCache.set(url,result); return result;
 }
 
-function championsMatchTitle(home, away) {
-  return `${CHAMPIONS_NAME[home] || home} v ${CHAMPIONS_NAME[away] || away}`;
+async function loadFx() {
+  try {
+    const r = await fetch('https://api.frankfurter.app/latest?from=EUR&to=USD,GBP', { headers:{'user-agent':UA} });
+    if (!r.ok) return;
+    const j = await r.json();
+    if (j?.rates?.USD) FX.USD = Number(j.rates.USD);
+    if (j?.rates?.GBP) FX.GBP = Number(j.rates.GBP);
+  } catch {}
 }
 
-async function getChampionsQuote(fixture) {
-  const slug = CHAMPIONS_PAGE_SLUG[fixture.home];
-  if (!slug) return { price: null, url: null, status: 'unsupported' };
-  const url = `https://champions-travel.com/football/${slug}`;
-  const page = await fetchText(url);
-  if (!page.ok) return { price: null, url, status: 'fetch-failed' };
+function firstMoneyAfter(text, startPattern, maxChars=500) {
+  const start = text.search(startPattern);
+  if (start < 0) return null;
+  const chunk = text.slice(start, start + maxChars);
+  // Handles From €204, From $240, From £175, From EUR 204, etc.
+  const m = chunk.match(/From\s*(€|\$|£|EUR|USD|GBP)\s*([0-9][0-9.,]*)/i);
+  if (!m) return null;
+  const sourceCurrency = codeFromCurrency(m[1]);
+  const sourcePrice = number(m[2]);
+  const price = toEUR(sourcePrice, sourceCurrency);
+  return { price, sourcePrice, sourceCurrency };
+}
 
-  const title = championsMatchTitle(fixture.home, fixture.away);
-  const exact = new RegExp(`${escapeRegExp(title)}[\\s\\S]{0,280}?From\\s*€\\s*([0-9]+(?:[.,][0-9]+)?)`, 'i');
-  const exactMatch = page.norm.match(exact);
-  if (exactMatch) {
-    return { price: parseEuro(exactMatch[1]), url, status: 'ok' };
+async function getChampionsQuote(f) {
+  const slug = CHAMPIONS_PAGE_SLUG[f.home];
+  if (!slug) return {price:null,url:null,status:'unsupported'};
+  const cleanUrl = `https://champions-travel.com/football/${slug}`;
+  // Some versions of the site honour this; harmless if ignored.
+  const page = await fetchText(cleanUrl + '?currency=EUR');
+  if (!page.ok || isChallenge(page)) return {price:null,url:cleanUrl,status:page.ok?'blocked':'fetch-failed',http:page.status};
+
+  const title = `${f.home} v ${f.away}`;
+  const result = firstMoneyAfter(page.norm, new RegExp(escapeRegExp(title),'i'), 650);
+  if (result?.price != null) return {...result,url:cleanUrl,status:'ok'};
+  if (result && result.price == null) return {...result,url:cleanUrl,status:'fx-unavailable'};
+
+  // Distinguish a valid event page we failed to parse from a genuine absence.
+  if (new RegExp(escapeRegExp(title),'i').test(page.norm)) {
+    return {price:null,url:cleanUrl,status:'parse-miss',title:page.title,http:page.status};
   }
-
-  return { price: null, url, status: 'not-listed' };
+  return {price:null,url:cleanUrl,status:'not-listed',title:page.title,http:page.status};
 }
 
-function extractP1Prices(normText) {
-  const prices = [];
-  const regex = /From\s*€\s*([0-9]+(?:[.,][0-9]+)?)/gi;
-  for (const match of normText.matchAll(regex)) {
-    const idx = match.index ?? 0;
-    const context = normText.slice(Math.max(0, idx - 35), Math.min(normText.length, idx + 45)).toLowerCase();
-    if (context.includes('hotel needed')) continue;
-    const value = parseEuro(match[1]);
-    if (value != null) prices.push(value);
+function allP1Money(text) {
+  const out=[];
+  const rx=/From\s*(€|\$|£|EUR|USD|GBP)\s*([0-9][0-9.,]*)/gi;
+  for (const m of text.matchAll(rx)) {
+    const idx=m.index??0;
+    const before=text.slice(Math.max(0,idx-55),idx).toLowerCase();
+    if (before.includes('hotel needed')) continue;
+    const sourceCurrency=codeFromCurrency(m[1]);
+    const sourcePrice=number(m[2]);
+    const price=toEUR(sourcePrice,sourceCurrency);
+    out.push({price,sourcePrice,sourceCurrency});
   }
-  return prices;
+  return out;
 }
 
-async function getP1Quote(fixture) {
-  const homeSlugs = P1_SLUGS[fixture.home] || [];
-  const awaySlugs = P1_SLUGS[fixture.away] || [];
-  let hadFetchFailure = false;
-
-  for (const homeSlug of homeSlugs) {
-    for (const awaySlug of awaySlugs) {
-      const url = `https://www.p1travel.com/en/football/premier-league/${homeSlug}-vs-${awaySlug}`;
-      const page = await fetchText(url);
-      if (!page.ok) { hadFetchFailure = true; continue; }
-      if (/Page Not Found|Could not find requested resource/i.test(page.text)) continue;
-      const prices = extractP1Prices(page.norm);
-      if (!prices.length) {
-        return { price: null, url, status: 'listed-no-price' };
-      }
-      return { price: Math.min(...prices), url, status: 'ok' };
+async function getP1Quote(f) {
+  const hs=P1_SLUGS[f.home]||[], as=P1_SLUGS[f.away]||[];
+  let sawBlocked=false, sawFetchFail=false, sawValidPage=false;
+  for (const h of hs) for (const a of as) {
+    const cleanUrl=`https://www.p1travel.com/en/football/premier-league/${h}-vs-${a}`;
+    const page=await fetchText(cleanUrl+'?currency=EUR');
+    if (!page.ok) { sawFetchFail=true; continue; }
+    if (isChallenge(page)) { sawBlocked=true; continue; }
+    if (/Page Not Found|Could not find requested resource/i.test(page.text)) continue;
+    sawValidPage=true;
+    const prices=allP1Money(page.norm).filter(x=>x.price!=null);
+    if (prices.length) {
+      const best=prices.reduce((a,b)=>b.price<a.price?b:a);
+      return {...best,url:cleanUrl,status:'ok'};
     }
+    const raw=allP1Money(page.norm);
+    if (raw.length) return {...raw[0],price:null,url:cleanUrl,status:'fx-unavailable'};
+    return {price:null,url:cleanUrl,status:'parse-miss',title:page.title,http:page.status};
   }
-
-  return { price: null, url: null, status: hadFetchFailure ? 'fetch-failed' : 'not-listed' };
+  return {price:null,url:null,status:sawBlocked?'blocked':sawFetchFail?'fetch-failed':sawValidPage?'parse-miss':'not-listed'};
 }
 
-function preserveOnTransientFailure(fresh, previous) {
-  if (fresh?.status !== 'fetch-failed') return fresh;
+// Never erase a good known price merely because a scrape returned no number.
+// Dynamic prices replace it as soon as a fresh numeric quote is successfully parsed.
+function preserveGood(fresh, previous) {
+  if (fresh && typeof fresh.price === 'number') return fresh;
   if (previous && typeof previous.price === 'number') {
-    return { ...previous, stale: true, status: 'stale-fetch-failed' };
+    return {
+      ...previous,
+      stale:true,
+      status:`stale-${fresh?.status || 'no-price'}`,
+      lastAttemptStatus:fresh?.status || 'no-price'
+    };
   }
   return fresh;
 }
 
-async function readPrevious() {
-  try { return JSON.parse(await readFile('data/prices.json', 'utf8')); }
-  catch { return { fixtures: {} }; }
+async function readPrevious(){
+  try{return JSON.parse(await readFile('data/prices.json','utf8'));}
+  catch{return {fixtures:{}};}
 }
 
-async function main() {
-  const generatedAt = new Date().toISOString();
-  const previous = await readPrevious();
-  const out = {
-    generatedAt,
-    providers: ['champions', 'p1'],
-    fixtures: {}
-  };
+async function main(){
+  await loadFx();
+  const generatedAt=new Date().toISOString();
+  const previous=await readPrevious();
+  const out={generatedAt,providers:['champions','p1'],fx:{base:'EUR',USD:FX.USD,GBP:FX.GBP},fixtures:{}};
 
-  for (const fixture of FIXTURES) {
-    const [champions, p1] = await Promise.all([
-      getChampionsQuote(fixture),
-      getP1Quote(fixture)
-    ]);
-
-    const prev = previous.fixtures?.[fixture.id] || {};
-    const safeChampions = preserveOnTransientFailure(champions, prev.champions);
-    const safeP1 = preserveOnTransientFailure(p1, prev.p1);
-
-    out.fixtures[fixture.id] = {
-      home: fixture.home,
-      away: fixture.away,
-      date: fixture.sort,
-      checkedAt: generatedAt,
-      champions: safeChampions,
-      p1: safeP1
-    };
-
-    console.log(`${fixture.id}: CT=${safeChampions.price ?? '—'} (${safeChampions.status}) | P1=${safeP1.price ?? '—'} (${safeP1.status})`);
+  for (const f of FIXTURES) {
+    const [ctFresh,p1Fresh]=await Promise.all([getChampionsQuote(f),getP1Quote(f)]);
+    const prev=previous.fixtures?.[f.id]||{};
+    const champions=preserveGood(ctFresh,prev.champions);
+    const p1=preserveGood(p1Fresh,prev.p1);
+    out.fixtures[f.id]={home:f.home,away:f.away,date:f.sort,checkedAt:generatedAt,champions,p1};
+    const cExtra=champions?.sourceCurrency&&champions.sourceCurrency!=='EUR'?` ${champions.sourceCurrency}${champions.sourcePrice}→€${champions.price??'?'}`:'';
+    const pExtra=p1?.sourceCurrency&&p1.sourceCurrency!=='EUR'?` ${p1.sourceCurrency}${p1.sourcePrice}→€${p1.price??'?'}`:'';
+    console.log(`${f.id}: CT=${champions?.price??'—'} [${champions?.status}]${cExtra} | P1=${p1?.price??'—'} [${p1?.status}]${pExtra}`);
   }
 
-  await mkdir('data', { recursive: true });
-  await writeFile('data/prices.json', JSON.stringify(out, null, 2) + '\n', 'utf8');
+  await mkdir('data',{recursive:true});
+  await writeFile('data/prices.json',JSON.stringify(out,null,2)+'\n','utf8');
 }
 
-main().catch(error => {
-  console.error(error);
-  process.exit(1);
-});
+main().catch(e=>{console.error(e);process.exit(1);});
