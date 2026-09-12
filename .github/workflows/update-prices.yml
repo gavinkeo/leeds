@@ -1,0 +1,75 @@
+name: Update reseller prices
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Hourly. GitHub cron is UTC and can occasionally start a few minutes late.
+    - cron: '17 * * * *'
+  push:
+    paths:
+      - 'scripts/update-prices.mjs'
+      - 'package.json'
+      - '.github/workflows/update-prices.yml'
+
+concurrency:
+  group: reseller-price-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh-prices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Pull latest Champions Travel / P1 prices
+        run: npm run update-prices
+
+      - name: Price refresh summary
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f data/prices.json ]]; then
+            node <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('fs');
+          const p = JSON.parse(fs.readFileSync('data/prices.json','utf8'));
+          const rows = Object.values(p.fixtures || {});
+          const live = provider => rows.filter(r => typeof r?.[provider]?.price === 'number').length;
+          const failed = provider => rows.filter(r => String(r?.[provider]?.status || '').includes('failed')).length;
+          console.log('## Reseller price refresh');
+          console.log(`Checked: ${p.generatedAt || 'unknown'}`);
+          console.log(`\n- Champions Travel prices: **${live('champions')}**`);
+          console.log(`- P1 Travel prices: **${live('p1')}**`);
+          console.log(`- CT fetch failures retained from previous good data: **${failed('champions')}**`);
+          console.log(`- P1 fetch failures retained from previous good data: **${failed('p1')}**`);
+          NODE
+          else
+            echo '## Reseller price refresh' >> "$GITHUB_STEP_SUMMARY"
+            echo 'data/prices.json was not produced.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Commit updated price feed
+        run: |
+          if [[ -n "$(git status --porcelain data/prices.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/prices.json
+            git commit -m "Update reseller prices"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin HEAD:"${GITHUB_REF_NAME}"
+          else
+            echo "No price changes to commit"
+          fi
