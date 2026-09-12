@@ -37,3 +37,9 @@ After uploading/committing the files:
 4. When it goes green, `data/prices.json` will be committed automatically and the website will pick it up.
 
 GitHub scheduled workflows are best-effort and may start a few minutes after :17, but an age over two hours is now visibly flagged on the site.
+
+
+## v14 workflow fix
+- Removed npm cache setup that required a missing `package-lock.json`.
+- Updated GitHub actions runtime to `checkout@v7` / `setup-node@v7` with Node 24.
+- Summary now explicitly says whether the scraper succeeded and how old the price file is.
