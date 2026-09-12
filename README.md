@@ -1,14 +1,15 @@
-# Leeds United 2026/27 Full Season Trip Planner
+# Leeds 2026/27 Trip Target Planner — v6
 
-Upload `index.html` to the root of a GitHub repository and enable GitHub Pages.
+Single-file GitHub Pages microsite.
 
-## v3 changes
-- Every remaining Premier League fixture, home and away, in one chronological timeline
-- All/Home/Away/FA Cup toggles
-- FA Cup placeholders from Round 3 through the Final
-- Club crests for every league opponent
-- Kickoff times shown for confirmed fixtures; TBC otherwise
-- Annual-leave tiles calculated from the 21-day rota, including the following travel-home day
-- Existing local browser notes and booking/ticket status remain supported
+## v6 changes
+- Away travel is now **Ryanair-first** rather than assuming Aer Lingus/Heathrow is the default.
+- Added green Ryanair route capsules only where the Cork routing is genuinely useful.
+- Added a **Good Cork route** filter.
+- Ipswich away upgraded: **ORK → STN + National Express (as little as 1h15)** makes it a strong practical away option.
+- Coventry, Everton, Man City/Man Utd, Liverpool, Villa, Spurs and selected London aways now show the most useful Ryanair gateway.
+- Awkward trips such as Bournemouth no longer get a positive airport capsule; the expanded notes explain why.
+- Fulham and Brentford were recalibrated because a Ryanair-first plan means using Stansted/Luton rather than expensive Heathrow flights.
+- Away target scores were adjusted to reflect the new travel assumptions.
 
-Data snapshot: 12 September 2026. Fixtures remain subject to change.
+Upload `index.html` to the GitHub Pages root.
