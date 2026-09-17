@@ -1,17 +1,10 @@
 {
-  "generatedAt": "2026-09-16T11:43:46.218Z",
+  "generatedAt": "2026-09-17T01:29:24.261Z",
   "source": "Ryanair timetable API",
   "localTimes": true,
   "refreshWindowHours": 12,
   "routes": {
     "ORK-MAN": {
-      "2026-09-16": [
-        {
-          "departureTime": "21:00",
-          "arrivalTime": "22:15",
-          "flightNumber": null
-        }
-      ],
       "2026-09-17": [
         {
           "departureTime": "17:25",
@@ -3016,13 +3009,6 @@
       ]
     },
     "MAN-ORK": {
-      "2026-09-16": [
-        {
-          "departureTime": "22:40",
-          "arrivalTime": "23:55",
-          "flightNumber": null
-        }
-      ],
       "2026-09-17": [
         {
           "departureTime": "15:40",
@@ -6027,13 +6013,6 @@
       ]
     },
     "ORK-LPL": {
-      "2026-09-16": [
-        {
-          "departureTime": "13:50",
-          "arrivalTime": "15:00",
-          "flightNumber": null
-        }
-      ],
       "2026-09-17": [
         {
           "departureTime": "13:45",
@@ -7289,13 +7268,6 @@
       ]
     },
     "LPL-ORK": {
-      "2026-09-16": [
-        {
-          "departureTime": "15:25",
-          "arrivalTime": "16:35",
-          "flightNumber": null
-        }
-      ],
       "2026-09-17": [
         {
           "departureTime": "12:10",
@@ -10557,18 +10529,6 @@
       ]
     },
     "ORK-STN": {
-      "2026-09-16": [
-        {
-          "departureTime": "14:05",
-          "arrivalTime": "15:30",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "17:15",
-          "arrivalTime": "18:40",
-          "flightNumber": null
-        }
-      ],
       "2026-09-17": [
         {
           "departureTime": "06:10",
@@ -14448,13 +14408,6 @@
       ]
     },
     "STN-ORK": {
-      "2026-09-16": [
-        {
-          "departureTime": "19:05",
-          "arrivalTime": "20:30",
-          "flightNumber": null
-        }
-      ],
       "2026-09-17": [
         {
           "departureTime": "08:00",
@@ -18429,7 +18382,7 @@
     "successful": 72,
     "failed": 0,
     "preservedMonths": 0,
-    "flightsLoaded": 2997,
+    "flightsLoaded": 2990,
     "failures": []
   }
 }
