@@ -1,22 +1,10 @@
 {
-  "generatedAt": "2026-09-18T05:59:16.618Z",
+  "generatedAt": "2026-09-18T19:41:02.843Z",
   "source": "Ryanair timetable API",
   "localTimes": true,
   "refreshWindowHours": 12,
   "routes": {
     "ORK-MAN": {
-      "2026-09-18": [
-        {
-          "departureTime": "08:45",
-          "arrivalTime": "10:00",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "17:35",
-          "arrivalTime": "18:50",
-          "flightNumber": null
-        }
-      ],
       "2026-09-19": [
         {
           "departureTime": "08:00",
@@ -3002,18 +2990,6 @@
       ]
     },
     "MAN-ORK": {
-      "2026-09-18": [
-        {
-          "departureTime": "07:05",
-          "arrivalTime": "08:20",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "15:55",
-          "arrivalTime": "17:10",
-          "flightNumber": null
-        }
-      ],
       "2026-09-19": [
         {
           "departureTime": "09:40",
@@ -5999,13 +5975,6 @@
       ]
     },
     "ORK-LPL": {
-      "2026-09-18": [
-        {
-          "departureTime": "19:10",
-          "arrivalTime": "20:20",
-          "flightNumber": null
-        }
-      ],
       "2026-09-19": [
         {
           "departureTime": "08:50",
@@ -9417,9 +9386,33 @@
           "departureTime": "10:25",
           "arrivalTime": "11:40",
           "flightNumber": null
+        },
+        {
+          "departureTime": "17:55",
+          "arrivalTime": "19:10",
+          "flightNumber": null
+        }
+      ],
+      "2027-03-16": [
+        {
+          "departureTime": "05:50",
+          "arrivalTime": "07:05",
+          "flightNumber": null
+        }
+      ],
+      "2027-03-17": [
+        {
+          "departureTime": "21:40",
+          "arrivalTime": "22:55",
+          "flightNumber": null
         }
       ],
       "2027-03-18": [
+        {
+          "departureTime": "08:10",
+          "arrivalTime": "09:25",
+          "flightNumber": null
+        },
         {
           "departureTime": "11:30",
           "arrivalTime": "12:45",
@@ -9430,6 +9423,11 @@
         {
           "departureTime": "06:05",
           "arrivalTime": "07:20",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "22:55",
+          "arrivalTime": "00:10",
           "flightNumber": null
         }
       ],
@@ -10413,9 +10411,33 @@
           "departureTime": "12:05",
           "arrivalTime": "13:20",
           "flightNumber": null
+        },
+        {
+          "departureTime": "16:15",
+          "arrivalTime": "17:30",
+          "flightNumber": null
+        }
+      ],
+      "2027-03-16": [
+        {
+          "departureTime": "07:30",
+          "arrivalTime": "08:45",
+          "flightNumber": null
+        }
+      ],
+      "2027-03-17": [
+        {
+          "departureTime": "20:00",
+          "arrivalTime": "21:15",
+          "flightNumber": null
         }
       ],
       "2027-03-18": [
+        {
+          "departureTime": "06:30",
+          "arrivalTime": "07:45",
+          "flightNumber": null
+        },
         {
           "departureTime": "13:10",
           "arrivalTime": "14:25",
@@ -10426,6 +10448,11 @@
         {
           "departureTime": "07:45",
           "arrivalTime": "09:00",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "21:15",
+          "arrivalTime": "22:30",
           "flightNumber": null
         }
       ],
@@ -10487,18 +10514,6 @@
       ]
     },
     "ORK-STN": {
-      "2026-09-18": [
-        {
-          "departureTime": "14:15",
-          "arrivalTime": "15:40",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "20:20",
-          "arrivalTime": "21:45",
-          "flightNumber": null
-        }
-      ],
       "2026-09-19": [
         {
           "departureTime": "08:50",
@@ -14344,23 +14359,6 @@
       ]
     },
     "STN-ORK": {
-      "2026-09-18": [
-        {
-          "departureTime": "08:00",
-          "arrivalTime": "09:25",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "12:25",
-          "arrivalTime": "13:50",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "18:30",
-          "arrivalTime": "19:55",
-          "flightNumber": null
-        }
-      ],
       "2026-09-19": [
         {
           "departureTime": "07:00",
