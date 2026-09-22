@@ -1,17 +1,10 @@
 {
-  "generatedAt": "2026-09-21T14:15:50.254Z",
+  "generatedAt": "2026-09-22T05:05:04.832Z",
   "source": "Ryanair timetable API",
   "localTimes": true,
   "refreshWindowHours": 12,
   "routes": {
     "ORK-MAN": {
-      "2026-09-21": [
-        {
-          "departureTime": "21:05",
-          "arrivalTime": "22:20",
-          "flightNumber": null
-        }
-      ],
       "2026-09-22": [
         {
           "departureTime": "08:30",
@@ -2961,13 +2954,6 @@
       ]
     },
     "MAN-ORK": {
-      "2026-09-21": [
-        {
-          "departureTime": "19:25",
-          "arrivalTime": "20:40",
-          "flightNumber": null
-        }
-      ],
       "2026-09-22": [
         {
           "departureTime": "06:50",
@@ -5917,13 +5903,6 @@
       ]
     },
     "ORK-LPL": {
-      "2026-09-21": [
-        {
-          "departureTime": "16:45",
-          "arrivalTime": "17:55",
-          "flightNumber": null
-        }
-      ],
       "2026-09-22": [
         {
           "departureTime": "13:55",
@@ -7144,13 +7123,6 @@
       ]
     },
     "LPL-ORK": {
-      "2026-09-21": [
-        {
-          "departureTime": "15:10",
-          "arrivalTime": "16:20",
-          "flightNumber": null
-        }
-      ],
       "2026-09-22": [
         {
           "departureTime": "12:20",
@@ -10393,13 +10365,6 @@
       ]
     },
     "ORK-STN": {
-      "2026-09-21": [
-        {
-          "departureTime": "20:55",
-          "arrivalTime": "22:20",
-          "flightNumber": null
-        }
-      ],
       "2026-09-22": [
         {
           "departureTime": "08:15",
@@ -14194,13 +14159,6 @@
       ]
     },
     "STN-ORK": {
-      "2026-09-21": [
-        {
-          "departureTime": "19:05",
-          "arrivalTime": "20:30",
-          "flightNumber": null
-        }
-      ],
       "2026-09-22": [
         {
           "departureTime": "06:25",
@@ -18090,7 +18048,7 @@
     "successful": 72,
     "failed": 0,
     "preservedMonths": 0,
-    "flightsLoaded": 2942,
+    "flightsLoaded": 2936,
     "failures": []
   }
 }
