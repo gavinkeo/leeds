@@ -1,23 +1,11 @@
 {
-  "generatedAt": "2026-09-22T18:58:10.870Z",
+  "generatedAt": "2026-09-23T11:45:25.716Z",
   "source": "Ryanair timetable API",
   "localTimes": true,
   "refreshWindowHours": 12,
   "routes": {
     "ORK-MAN": {
-      "2026-09-22": [
-        {
-          "departureTime": "22:25",
-          "arrivalTime": "23:40",
-          "flightNumber": null
-        }
-      ],
       "2026-09-23": [
-        {
-          "departureTime": "09:55",
-          "arrivalTime": "11:10",
-          "flightNumber": null
-        },
         {
           "departureTime": "21:00",
           "arrivalTime": "22:15",
@@ -2949,19 +2937,7 @@
       ]
     },
     "MAN-ORK": {
-      "2026-09-22": [
-        {
-          "departureTime": "20:30",
-          "arrivalTime": "21:45",
-          "flightNumber": null
-        }
-      ],
       "2026-09-23": [
-        {
-          "departureTime": "08:15",
-          "arrivalTime": "09:30",
-          "flightNumber": null
-        },
         {
           "departureTime": "22:40",
           "arrivalTime": "23:55",
@@ -8319,13 +8295,6 @@
       ]
     },
     "ORK-BHX": {
-      "2026-09-22": [
-        {
-          "departureTime": "22:20",
-          "arrivalTime": "23:35",
-          "flightNumber": null
-        }
-      ],
       "2026-09-24": [
         {
           "departureTime": "10:00",
@@ -9330,13 +9299,6 @@
       ]
     },
     "BHX-ORK": {
-      "2026-09-22": [
-        {
-          "departureTime": "20:35",
-          "arrivalTime": "21:55",
-          "flightNumber": null
-        }
-      ],
       "2026-09-24": [
         {
           "departureTime": "08:15",
@@ -10342,11 +10304,6 @@
     },
     "ORK-STN": {
       "2026-09-23": [
-        {
-          "departureTime": "08:20",
-          "arrivalTime": "09:45",
-          "flightNumber": null
-        },
         {
           "departureTime": "14:05",
           "arrivalTime": "15:30",
@@ -14118,24 +14075,7 @@
       ]
     },
     "STN-ORK": {
-      "2026-09-22": [
-        {
-          "departureTime": "19:35",
-          "arrivalTime": "21:00",
-          "flightNumber": null
-        }
-      ],
       "2026-09-23": [
-        {
-          "departureTime": "06:30",
-          "arrivalTime": "07:55",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "12:15",
-          "arrivalTime": "13:40",
-          "flightNumber": null
-        },
         {
           "departureTime": "19:05",
           "arrivalTime": "20:30",
@@ -17997,7 +17937,7 @@
     "successful": 72,
     "failed": 0,
     "preservedMonths": 0,
-    "flightsLoaded": 2927,
+    "flightsLoaded": 2917,
     "failures": []
   }
 }
