@@ -1,17 +1,10 @@
 {
-  "generatedAt": "2026-09-27T14:06:26.467Z",
+  "generatedAt": "2026-09-28T07:00:55.520Z",
   "source": "Ryanair timetable API",
   "localTimes": true,
   "refreshWindowHours": 12,
   "routes": {
     "ORK-MAN": {
-      "2026-09-27": [
-        {
-          "departureTime": "18:00",
-          "arrivalTime": "19:15",
-          "flightNumber": null
-        }
-      ],
       "2026-09-28": [
         {
           "departureTime": "12:00",
@@ -2894,13 +2887,6 @@
       ]
     },
     "MAN-ORK": {
-      "2026-09-27": [
-        {
-          "departureTime": "20:00",
-          "arrivalTime": "21:15",
-          "flightNumber": null
-        }
-      ],
       "2026-09-28": [
         {
           "departureTime": "10:20",
@@ -5783,13 +5769,6 @@
       ]
     },
     "ORK-LPL": {
-      "2026-09-27": [
-        {
-          "departureTime": "23:10",
-          "arrivalTime": "00:20",
-          "flightNumber": null
-        }
-      ],
       "2026-09-28": [
         {
           "departureTime": "16:45",
@@ -6968,13 +6947,6 @@
       ]
     },
     "LPL-ORK": {
-      "2026-09-27": [
-        {
-          "departureTime": "21:35",
-          "arrivalTime": "22:45",
-          "flightNumber": null
-        }
-      ],
       "2026-09-28": [
         {
           "departureTime": "15:10",
@@ -10665,13 +10637,6 @@
       ]
     },
     "ORK-STN": {
-      "2026-09-27": [
-        {
-          "departureTime": "17:20",
-          "arrivalTime": "18:45",
-          "flightNumber": null
-        }
-      ],
       "2026-09-28": [
         {
           "departureTime": "08:15",
@@ -14364,19 +14329,7 @@
       ]
     },
     "STN-ORK": {
-      "2026-09-27": [
-        {
-          "departureTime": "19:10",
-          "arrivalTime": "20:35",
-          "flightNumber": null
-        }
-      ],
       "2026-09-28": [
-        {
-          "departureTime": "06:25",
-          "arrivalTime": "07:50",
-          "flightNumber": null
-        },
         {
           "departureTime": "12:50",
           "arrivalTime": "14:15",
@@ -18158,7 +18111,7 @@
     "successful": 72,
     "failed": 0,
     "preservedMonths": 0,
-    "flightsLoaded": 2942,
+    "flightsLoaded": 2935,
     "failures": []
   }
 }
