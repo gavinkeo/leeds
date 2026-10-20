@@ -1,17 +1,10 @@
 {
-  "generatedAt": "2026-10-19T17:31:41.892Z",
+  "generatedAt": "2026-10-20T07:40:35.802Z",
   "source": "Ryanair timetable API",
   "localTimes": true,
   "refreshWindowHours": 12,
   "routes": {
     "ORK-MAN": {
-      "2026-10-19": [
-        {
-          "departureTime": "21:05",
-          "arrivalTime": "22:20",
-          "flightNumber": null
-        }
-      ],
       "2026-10-20": [
         {
           "departureTime": "08:30",
@@ -2675,19 +2668,7 @@
       ]
     },
     "MAN-ORK": {
-      "2026-10-19": [
-        {
-          "departureTime": "19:25",
-          "arrivalTime": "20:40",
-          "flightNumber": null
-        }
-      ],
       "2026-10-20": [
-        {
-          "departureTime": "06:50",
-          "arrivalTime": "08:05",
-          "flightNumber": null
-        },
         {
           "departureTime": "20:30",
           "arrivalTime": "21:45",
@@ -9703,19 +9684,7 @@
       ]
     },
     "ORK-STN": {
-      "2026-10-19": [
-        {
-          "departureTime": "20:55",
-          "arrivalTime": "22:20",
-          "flightNumber": null
-        }
-      ],
       "2026-10-20": [
-        {
-          "departureTime": "08:15",
-          "arrivalTime": "09:40",
-          "flightNumber": null
-        },
         {
           "departureTime": "14:45",
           "arrivalTime": "16:10",
@@ -13033,19 +13002,7 @@
       ]
     },
     "STN-ORK": {
-      "2026-10-19": [
-        {
-          "departureTime": "19:05",
-          "arrivalTime": "20:30",
-          "flightNumber": null
-        }
-      ],
       "2026-10-20": [
-        {
-          "departureTime": "06:25",
-          "arrivalTime": "07:50",
-          "flightNumber": null
-        },
         {
           "departureTime": "12:55",
           "arrivalTime": "14:20",
@@ -16458,7 +16415,7 @@
     "successful": 72,
     "failed": 0,
     "preservedMonths": 0,
-    "flightsLoaded": 2666,
+    "flightsLoaded": 2659,
     "failures": []
   }
 }
