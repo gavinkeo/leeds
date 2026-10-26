@@ -1,22 +1,10 @@
 {
-  "generatedAt": "2026-10-25T09:52:38.507Z",
+  "generatedAt": "2026-10-26T00:26:33.457Z",
   "source": "Ryanair timetable API",
   "localTimes": true,
   "refreshWindowHours": 12,
   "routes": {
     "ORK-MAN": {
-      "2026-10-25": [
-        {
-          "departureTime": "09:40",
-          "arrivalTime": "10:55",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "22:35",
-          "arrivalTime": "23:50",
-          "flightNumber": null
-        }
-      ],
       "2026-10-26": [
         {
           "departureTime": "07:00",
@@ -2608,13 +2596,6 @@
       ]
     },
     "MAN-ORK": {
-      "2026-10-25": [
-        {
-          "departureTime": "20:55",
-          "arrivalTime": "22:10",
-          "flightNumber": null
-        }
-      ],
       "2026-10-26": [
         {
           "departureTime": "08:45",
@@ -5206,13 +5187,6 @@
       ]
     },
     "ORK-LPL": {
-      "2026-10-25": [
-        {
-          "departureTime": "19:50",
-          "arrivalTime": "21:00",
-          "flightNumber": null
-        }
-      ],
       "2026-10-26": [
         {
           "departureTime": "13:50",
@@ -6195,13 +6169,6 @@
       ]
     },
     "LPL-ORK": {
-      "2026-10-25": [
-        {
-          "departureTime": "18:15",
-          "arrivalTime": "19:25",
-          "flightNumber": null
-        }
-      ],
       "2026-10-26": [
         {
           "departureTime": "12:15",
@@ -7184,18 +7151,6 @@
       ]
     },
     "ORK-BHX": {
-      "2026-10-25": [
-        {
-          "departureTime": "12:55",
-          "arrivalTime": "14:10",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "23:35",
-          "arrivalTime": "00:50",
-          "flightNumber": null
-        }
-      ],
       "2026-10-26": [
         {
           "departureTime": "10:25",
@@ -8311,18 +8266,6 @@
       ]
     },
     "BHX-ORK": {
-      "2026-10-25": [
-        {
-          "departureTime": "14:35",
-          "arrivalTime": "15:50",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "21:35",
-          "arrivalTime": "22:50",
-          "flightNumber": null
-        }
-      ],
       "2026-10-26": [
         {
           "departureTime": "12:05",
@@ -9438,13 +9381,6 @@
       ]
     },
     "ORK-STN": {
-      "2026-10-25": [
-        {
-          "departureTime": "16:15",
-          "arrivalTime": "17:40",
-          "flightNumber": null
-        }
-      ],
       "2026-10-26": [
         {
           "departureTime": "07:55",
@@ -12676,13 +12612,6 @@
       ]
     },
     "STN-ORK": {
-      "2026-10-25": [
-        {
-          "departureTime": "14:25",
-          "arrivalTime": "15:50",
-          "flightNumber": null
-        }
-      ],
       "2026-10-26": [
         {
           "departureTime": "06:05",
@@ -16009,7 +15938,7 @@
     "successful": 72,
     "failed": 0,
     "preservedMonths": 0,
-    "flightsLoaded": 2593,
+    "flightsLoaded": 2582,
     "failures": []
   }
 }
