@@ -1,16 +1,11 @@
 {
-  "generatedAt": "2026-10-27T06:21:41.516Z",
+  "generatedAt": "2026-10-27T19:27:42.313Z",
   "source": "Ryanair timetable API",
   "localTimes": true,
   "refreshWindowHours": 12,
   "routes": {
     "ORK-MAN": {
       "2026-10-27": [
-        {
-          "departureTime": "08:35",
-          "arrivalTime": "09:50",
-          "flightNumber": null
-        },
         {
           "departureTime": "20:00",
           "arrivalTime": "21:15",
@@ -2586,16 +2581,6 @@
     "MAN-ORK": {
       "2026-10-27": [
         {
-          "departureTime": "06:55",
-          "arrivalTime": "08:10",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "18:20",
-          "arrivalTime": "19:35",
-          "flightNumber": null
-        },
-        {
           "departureTime": "20:35",
           "arrivalTime": "21:50",
           "flightNumber": null
@@ -5163,13 +5148,6 @@
       ]
     },
     "ORK-LPL": {
-      "2026-10-27": [
-        {
-          "departureTime": "06:00",
-          "arrivalTime": "07:10",
-          "flightNumber": null
-        }
-      ],
       "2026-10-28": [
         {
           "departureTime": "20:55",
@@ -6138,13 +6116,6 @@
       ]
     },
     "LPL-ORK": {
-      "2026-10-27": [
-        {
-          "departureTime": "07:35",
-          "arrivalTime": "08:45",
-          "flightNumber": null
-        }
-      ],
       "2026-10-28": [
         {
           "departureTime": "13:00",
@@ -9330,16 +9301,6 @@
     },
     "ORK-STN": {
       "2026-10-27": [
-        {
-          "departureTime": "08:00",
-          "arrivalTime": "09:25",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "15:30",
-          "arrivalTime": "16:55",
-          "flightNumber": null
-        },
         {
           "departureTime": "19:25",
           "arrivalTime": "20:50",
@@ -12544,16 +12505,6 @@
     },
     "STN-ORK": {
       "2026-10-27": [
-        {
-          "departureTime": "09:50",
-          "arrivalTime": "11:15",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "13:40",
-          "arrivalTime": "15:05",
-          "flightNumber": null
-        },
         {
           "departureTime": "21:15",
           "arrivalTime": "22:40",
@@ -15852,7 +15803,7 @@
     "successful": 72,
     "failed": 0,
     "preservedMonths": 0,
-    "flightsLoaded": 2568,
+    "flightsLoaded": 2559,
     "failures": []
   }
 }
