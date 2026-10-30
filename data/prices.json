@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-10-30T08:43:11.270Z",
+  "generatedAt": "2026-10-30T15:58:31.410Z",
   "providers": [
     "champions",
     "p1"
   ],
   "fx": {
     "base": "EUR",
-    "USD": 1.113,
-    "GBP": 0.83578
+    "USD": 1.1172,
+    "GBP": 0.8338
   },
   "fixtures": {
     "new-h": {
       "home": "Leeds United",
       "away": "Newcastle United",
       "date": "2026-09-14",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": null,
         "url": "https://champions-travel.com/football/leeds-united",
@@ -32,7 +32,7 @@
       "home": "Leeds United",
       "away": "Crystal Palace",
       "date": "2026-09-20",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": null,
         "url": "https://champions-travel.com/football/leeds-united",
@@ -50,7 +50,7 @@
       "home": "Arsenal",
       "away": "Leeds United",
       "date": "2026-10-10",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": 885,
         "sourcePrice": 991,
@@ -72,7 +72,7 @@
       "home": "Leeds United",
       "away": "Manchester United",
       "date": "2026-10-18",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": 562,
         "sourcePrice": 628,
@@ -92,7 +92,7 @@
       "home": "Sunderland",
       "away": "Leeds United",
       "date": "2026-10-25",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": null,
         "url": null,
@@ -108,7 +108,7 @@
       "home": "Bournemouth",
       "away": "Leeds United",
       "date": "2026-10-31",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": null,
         "url": null,
@@ -124,13 +124,15 @@
       "home": "Leeds United",
       "away": "Tottenham Hotspur",
       "date": "2026-11-07",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": 329,
         "sourcePrice": 366,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/leeds-united",
-        "status": "ok"
+        "status": "stale-not-listed",
+        "stale": true,
+        "lastAttemptStatus": "not-listed"
       },
       "p1": {
         "price": null,
@@ -142,9 +144,9 @@
       "home": "Chelsea",
       "away": "Leeds United",
       "date": "2026-11-21",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 419,
+        "price": 417,
         "sourcePrice": 466,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/chelsea",
@@ -160,9 +162,9 @@
       "home": "Leeds United",
       "away": "Coventry City",
       "date": "2026-11-28",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 448,
+        "price": 447,
         "sourcePrice": 499,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/leeds-united",
@@ -178,7 +180,7 @@
       "home": "Manchester City",
       "away": "Leeds United",
       "date": "2026-12-02",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": 90,
         "sourcePrice": 100,
@@ -198,9 +200,9 @@
       "home": "Leeds United",
       "away": "Ipswich Town",
       "date": "2026-12-05",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 358,
+        "price": 357,
         "sourcePrice": 399,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/leeds-united",
@@ -216,7 +218,7 @@
       "home": "Liverpool FC",
       "away": "Leeds United",
       "date": "2026-12-12",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": null,
         "url": "https://champions-travel.com/football/liverpool-fc",
@@ -233,9 +235,9 @@
       "home": "Leeds United",
       "away": "Fulham",
       "date": "2026-12-19",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 299,
+        "price": 298,
         "sourcePrice": 333,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/leeds-united",
@@ -251,9 +253,9 @@
       "home": "Aston Villa",
       "away": "Leeds United",
       "date": "2026-12-26",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 102,
+        "price": 101,
         "sourcePrice": 113,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/aston-villa",
@@ -269,7 +271,7 @@
       "home": "Hull City",
       "away": "Leeds United",
       "date": "2026-12-29",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": null,
         "url": null,
@@ -285,9 +287,9 @@
       "home": "Leeds United",
       "away": "Everton",
       "date": "2027-01-01",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 448,
+        "price": 447,
         "sourcePrice": 499,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/leeds-united",
@@ -303,9 +305,9 @@
       "home": "Leeds United",
       "away": "Manchester City",
       "date": "2027-01-06",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 329,
+        "price": 328,
         "sourcePrice": 366,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/leeds-united",
@@ -321,7 +323,7 @@
       "home": "Tottenham Hotspur",
       "away": "Leeds United",
       "date": "2027-01-16",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": 132,
         "sourcePrice": 147,
@@ -339,9 +341,9 @@
       "home": "Leeds United",
       "away": "Chelsea",
       "date": "2027-01-23",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 329,
+        "price": 328,
         "sourcePrice": 366,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/leeds-united",
@@ -357,7 +359,7 @@
       "home": "Coventry City",
       "away": "Leeds United",
       "date": "2027-01-30",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": null,
         "url": null,
@@ -373,9 +375,9 @@
       "home": "Leeds United",
       "away": "Bournemouth",
       "date": "2027-02-06",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 299,
+        "price": 298,
         "sourcePrice": 333,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/leeds-united",
@@ -391,7 +393,7 @@
       "home": "Everton",
       "away": "Leeds United",
       "date": "2027-02-10",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": null,
         "url": null,
@@ -407,9 +409,9 @@
       "home": "Leeds United",
       "away": "Aston Villa",
       "date": "2027-02-20",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 299,
+        "price": 298,
         "sourcePrice": 333,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/leeds-united",
@@ -425,7 +427,7 @@
       "home": "Fulham",
       "away": "Leeds United",
       "date": "2027-02-27",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": 90,
         "sourcePrice": 100,
@@ -445,9 +447,9 @@
       "home": "Leeds United",
       "away": "Hull City",
       "date": "2027-03-03",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 269,
+        "price": 268,
         "sourcePrice": 299,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/leeds-united",
@@ -463,9 +465,9 @@
       "home": "Leeds United",
       "away": "Brighton & Hove Albion",
       "date": "2027-03-13",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 329,
+        "price": 328,
         "sourcePrice": 366,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/leeds-united",
@@ -481,7 +483,7 @@
       "home": "Newcastle United",
       "away": "Leeds United",
       "date": "2027-03-20",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": null,
         "url": null,
@@ -497,9 +499,9 @@
       "home": "Leeds United",
       "away": "Nottingham Forest",
       "date": "2027-04-10",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 358,
+        "price": 357,
         "sourcePrice": 399,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/leeds-united",
@@ -515,9 +517,9 @@
       "home": "Brentford",
       "away": "Leeds United",
       "date": "2027-04-17",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 388,
+        "price": 387,
         "sourcePrice": 432,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/brentford",
@@ -533,7 +535,7 @@
       "home": "Leeds United",
       "away": "Liverpool FC",
       "date": "2027-04-24",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": 440,
         "sourcePrice": 505,
@@ -553,7 +555,7 @@
       "home": "Ipswich Town",
       "away": "Leeds United",
       "date": "2027-05-01",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": null,
         "url": null,
@@ -569,9 +571,9 @@
       "home": "Leeds United",
       "away": "Arsenal",
       "date": "2027-05-08",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 448,
+        "price": 447,
         "sourcePrice": 499,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/leeds-united",
@@ -587,7 +589,7 @@
       "home": "Manchester United",
       "away": "Leeds United",
       "date": "2027-05-15",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
         "price": 209,
         "sourcePrice": 233,
@@ -605,9 +607,9 @@
       "home": "Leeds United",
       "away": "Sunderland",
       "date": "2027-05-23",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 388,
+        "price": 387,
         "sourcePrice": 432,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/leeds-united",
@@ -623,9 +625,9 @@
       "home": "Crystal Palace",
       "away": "Leeds United",
       "date": "2027-05-30",
-      "checkedAt": "2026-10-30T08:43:11.270Z",
+      "checkedAt": "2026-10-30T15:58:31.410Z",
       "champions": {
-        "price": 162,
+        "price": 161,
         "sourcePrice": 180,
         "sourceCurrency": "USD",
         "url": "https://champions-travel.com/football/crystal-palace",
