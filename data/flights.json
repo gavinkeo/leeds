@@ -1,22 +1,10 @@
 {
-  "generatedAt": "2026-11-07T08:52:43.393Z",
+  "generatedAt": "2026-11-07T23:41:46.701Z",
   "source": "Ryanair timetable API",
   "localTimes": true,
   "refreshWindowHours": 12,
   "routes": {
     "ORK-MAN": {
-      "2026-11-07": [
-        {
-          "departureTime": "12:15",
-          "arrivalTime": "13:30",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "22:40",
-          "arrivalTime": "23:55",
-          "flightNumber": null
-        }
-      ],
       "2026-11-08": [
         {
           "departureTime": "09:40",
@@ -2447,18 +2435,6 @@
       ]
     },
     "MAN-ORK": {
-      "2026-11-07": [
-        {
-          "departureTime": "13:55",
-          "arrivalTime": "15:10",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "21:00",
-          "arrivalTime": "22:15",
-          "flightNumber": null
-        }
-      ],
       "2026-11-08": [
         {
           "departureTime": "08:00",
@@ -6727,13 +6703,6 @@
       ]
     },
     "ORK-BHX": {
-      "2026-11-07": [
-        {
-          "departureTime": "19:50",
-          "arrivalTime": "21:05",
-          "flightNumber": null
-        }
-      ],
       "2026-11-08": [
         {
           "departureTime": "12:55",
@@ -7767,13 +7736,6 @@
       ]
     },
     "BHX-ORK": {
-      "2026-11-07": [
-        {
-          "departureTime": "21:30",
-          "arrivalTime": "22:45",
-          "flightNumber": null
-        }
-      ],
       "2026-11-08": [
         {
           "departureTime": "14:35",
@@ -8807,18 +8769,6 @@
       ]
     },
     "ORK-STN": {
-      "2026-11-07": [
-        {
-          "departureTime": "10:20",
-          "arrivalTime": "11:45",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "21:45",
-          "arrivalTime": "23:10",
-          "flightNumber": null
-        }
-      ],
       "2026-11-08": [
         {
           "departureTime": "07:50",
@@ -11849,18 +11799,6 @@
       ]
     },
     "STN-ORK": {
-      "2026-11-07": [
-        {
-          "departureTime": "12:15",
-          "arrivalTime": "13:40",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "19:55",
-          "arrivalTime": "21:20",
-          "flightNumber": null
-        }
-      ],
       "2026-11-08": [
         {
           "departureTime": "06:00",
@@ -14986,7 +14924,7 @@
     "successful": 72,
     "failed": 0,
     "preservedMonths": 0,
-    "flightsLoaded": 2426,
+    "flightsLoaded": 2416,
     "failures": []
   }
 }
