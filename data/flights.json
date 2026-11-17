@@ -1,16 +1,11 @@
 {
-  "generatedAt": "2026-11-16T22:13:42.401Z",
+  "generatedAt": "2026-11-17T14:33:10.803Z",
   "source": "Ryanair timetable API",
   "localTimes": true,
   "refreshWindowHours": 12,
   "routes": {
     "ORK-MAN": {
       "2026-11-17": [
-        {
-          "departureTime": "08:35",
-          "arrivalTime": "09:50",
-          "flightNumber": null
-        },
         {
           "departureTime": "20:00",
           "arrivalTime": "21:15",
@@ -2328,11 +2323,6 @@
     },
     "MAN-ORK": {
       "2026-11-17": [
-        {
-          "departureTime": "06:55",
-          "arrivalTime": "08:10",
-          "flightNumber": null
-        },
         {
           "departureTime": "18:20",
           "arrivalTime": "19:35",
@@ -14294,7 +14284,7 @@
     "successful": 72,
     "failed": 0,
     "preservedMonths": 0,
-    "flightsLoaded": 2314,
+    "flightsLoaded": 2312,
     "failures": []
   }
 }
