@@ -1,17 +1,10 @@
 {
-  "generatedAt": "2026-11-19T13:21:48.550Z",
+  "generatedAt": "2026-11-20T03:27:42.779Z",
   "source": "Ryanair timetable API",
   "localTimes": true,
   "refreshWindowHours": 12,
   "routes": {
     "ORK-MAN": {
-      "2026-11-19": [
-        {
-          "departureTime": "20:40",
-          "arrivalTime": "21:55",
-          "flightNumber": null
-        }
-      ],
       "2026-11-20": [
         {
           "departureTime": "06:15",
@@ -1559,6 +1552,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "12:10",
+          "arrivalTime": "13:25",
+          "flightNumber": null
+        },
+        {
           "departureTime": "20:55",
           "arrivalTime": "22:10",
           "flightNumber": null
@@ -1640,6 +1638,11 @@
         {
           "departureTime": "09:10",
           "arrivalTime": "10:25",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "12:10",
+          "arrivalTime": "13:25",
           "flightNumber": null
         },
         {
@@ -1727,6 +1730,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "12:10",
+          "arrivalTime": "13:25",
+          "flightNumber": null
+        },
+        {
           "departureTime": "20:55",
           "arrivalTime": "22:10",
           "flightNumber": null
@@ -1808,6 +1816,11 @@
         {
           "departureTime": "09:10",
           "arrivalTime": "10:25",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "12:10",
+          "arrivalTime": "13:25",
           "flightNumber": null
         },
         {
@@ -1895,6 +1908,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "12:10",
+          "arrivalTime": "13:25",
+          "flightNumber": null
+        },
+        {
           "departureTime": "20:55",
           "arrivalTime": "22:10",
           "flightNumber": null
@@ -1976,6 +1994,11 @@
         {
           "departureTime": "09:10",
           "arrivalTime": "10:25",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "12:10",
+          "arrivalTime": "13:25",
           "flightNumber": null
         },
         {
@@ -2063,6 +2086,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "12:10",
+          "arrivalTime": "13:25",
+          "flightNumber": null
+        },
+        {
           "departureTime": "20:55",
           "arrivalTime": "22:10",
           "flightNumber": null
@@ -2144,6 +2172,11 @@
         {
           "departureTime": "09:10",
           "arrivalTime": "10:25",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "12:10",
+          "arrivalTime": "13:25",
           "flightNumber": null
         },
         {
@@ -2231,6 +2264,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "12:10",
+          "arrivalTime": "13:25",
+          "flightNumber": null
+        },
+        {
           "departureTime": "20:55",
           "arrivalTime": "22:10",
           "flightNumber": null
@@ -2298,13 +2336,6 @@
       ]
     },
     "MAN-ORK": {
-      "2026-11-19": [
-        {
-          "departureTime": "19:00",
-          "arrivalTime": "20:15",
-          "flightNumber": null
-        }
-      ],
       "2026-11-20": [
         {
           "departureTime": "07:55",
@@ -3852,6 +3883,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "13:50",
+          "arrivalTime": "15:05",
+          "flightNumber": null
+        },
+        {
           "departureTime": "19:15",
           "arrivalTime": "20:30",
           "flightNumber": null
@@ -3933,6 +3969,11 @@
         {
           "departureTime": "07:25",
           "arrivalTime": "08:40",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "13:50",
+          "arrivalTime": "15:05",
           "flightNumber": null
         },
         {
@@ -4020,6 +4061,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "13:50",
+          "arrivalTime": "15:05",
+          "flightNumber": null
+        },
+        {
           "departureTime": "19:15",
           "arrivalTime": "20:30",
           "flightNumber": null
@@ -4101,6 +4147,11 @@
         {
           "departureTime": "07:25",
           "arrivalTime": "08:40",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "13:50",
+          "arrivalTime": "15:05",
           "flightNumber": null
         },
         {
@@ -4188,6 +4239,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "13:50",
+          "arrivalTime": "15:05",
+          "flightNumber": null
+        },
+        {
           "departureTime": "19:15",
           "arrivalTime": "20:30",
           "flightNumber": null
@@ -4269,6 +4325,11 @@
         {
           "departureTime": "07:25",
           "arrivalTime": "08:40",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "13:50",
+          "arrivalTime": "15:05",
           "flightNumber": null
         },
         {
@@ -4356,6 +4417,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "13:50",
+          "arrivalTime": "15:05",
+          "flightNumber": null
+        },
+        {
           "departureTime": "19:15",
           "arrivalTime": "20:30",
           "flightNumber": null
@@ -4440,6 +4506,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "13:50",
+          "arrivalTime": "15:05",
+          "flightNumber": null
+        },
+        {
           "departureTime": "19:15",
           "arrivalTime": "20:30",
           "flightNumber": null
@@ -4521,6 +4592,11 @@
         {
           "departureTime": "07:25",
           "arrivalTime": "08:40",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "13:50",
+          "arrivalTime": "15:05",
           "flightNumber": null
         },
         {
@@ -5053,13 +5129,6 @@
           "flightNumber": null
         }
       ],
-      "2027-04-02": [
-        {
-          "departureTime": "16:30",
-          "arrivalTime": "17:35",
-          "flightNumber": null
-        }
-      ],
       "2027-04-03": [
         {
           "departureTime": "08:35",
@@ -5099,13 +5168,6 @@
         {
           "departureTime": "14:00",
           "arrivalTime": "15:05",
-          "flightNumber": null
-        }
-      ],
-      "2027-04-09": [
-        {
-          "departureTime": "16:30",
-          "arrivalTime": "17:35",
           "flightNumber": null
         }
       ],
@@ -5151,13 +5213,6 @@
           "flightNumber": null
         }
       ],
-      "2027-04-16": [
-        {
-          "departureTime": "16:30",
-          "arrivalTime": "17:35",
-          "flightNumber": null
-        }
-      ],
       "2027-04-17": [
         {
           "departureTime": "08:35",
@@ -5200,13 +5255,6 @@
           "flightNumber": null
         }
       ],
-      "2027-04-23": [
-        {
-          "departureTime": "16:30",
-          "arrivalTime": "17:35",
-          "flightNumber": null
-        }
-      ],
       "2027-04-24": [
         {
           "departureTime": "08:35",
@@ -5246,13 +5294,6 @@
         {
           "departureTime": "14:00",
           "arrivalTime": "15:05",
-          "flightNumber": null
-        }
-      ],
-      "2027-04-30": [
-        {
-          "departureTime": "16:30",
-          "arrivalTime": "17:35",
           "flightNumber": null
         }
       ],
@@ -5937,13 +5978,6 @@
           "flightNumber": null
         }
       ],
-      "2027-04-02": [
-        {
-          "departureTime": "14:55",
-          "arrivalTime": "16:05",
-          "flightNumber": null
-        }
-      ],
       "2027-04-03": [
         {
           "departureTime": "07:00",
@@ -5983,13 +6017,6 @@
         {
           "departureTime": "15:30",
           "arrivalTime": "16:40",
-          "flightNumber": null
-        }
-      ],
-      "2027-04-09": [
-        {
-          "departureTime": "14:55",
-          "arrivalTime": "16:05",
           "flightNumber": null
         }
       ],
@@ -6035,13 +6062,6 @@
           "flightNumber": null
         }
       ],
-      "2027-04-16": [
-        {
-          "departureTime": "14:55",
-          "arrivalTime": "16:05",
-          "flightNumber": null
-        }
-      ],
       "2027-04-17": [
         {
           "departureTime": "07:00",
@@ -6084,13 +6104,6 @@
           "flightNumber": null
         }
       ],
-      "2027-04-23": [
-        {
-          "departureTime": "14:55",
-          "arrivalTime": "16:05",
-          "flightNumber": null
-        }
-      ],
       "2027-04-24": [
         {
           "departureTime": "07:00",
@@ -6130,13 +6143,6 @@
         {
           "departureTime": "15:30",
           "arrivalTime": "16:40",
-          "flightNumber": null
-        }
-      ],
-      "2027-04-30": [
-        {
-          "departureTime": "14:55",
-          "arrivalTime": "16:05",
           "flightNumber": null
         }
       ],
@@ -7208,6 +7214,13 @@
           "flightNumber": null
         }
       ],
+      "2027-05-01": [
+        {
+          "departureTime": "10:15",
+          "arrivalTime": "11:30",
+          "flightNumber": null
+        }
+      ],
       "2027-05-02": [
         {
           "departureTime": "16:20",
@@ -7233,6 +7246,13 @@
         {
           "departureTime": "18:10",
           "arrivalTime": "19:25",
+          "flightNumber": null
+        }
+      ],
+      "2027-05-08": [
+        {
+          "departureTime": "10:15",
+          "arrivalTime": "11:30",
           "flightNumber": null
         }
       ],
@@ -7264,6 +7284,13 @@
           "flightNumber": null
         }
       ],
+      "2027-05-15": [
+        {
+          "departureTime": "10:15",
+          "arrivalTime": "11:30",
+          "flightNumber": null
+        }
+      ],
       "2027-05-16": [
         {
           "departureTime": "16:20",
@@ -7289,6 +7316,13 @@
         {
           "departureTime": "18:10",
           "arrivalTime": "19:25",
+          "flightNumber": null
+        }
+      ],
+      "2027-05-22": [
+        {
+          "departureTime": "10:15",
+          "arrivalTime": "11:30",
           "flightNumber": null
         }
       ],
@@ -7320,6 +7354,13 @@
           "flightNumber": null
         }
       ],
+      "2027-05-29": [
+        {
+          "departureTime": "10:15",
+          "arrivalTime": "11:30",
+          "flightNumber": null
+        }
+      ],
       "2027-05-30": [
         {
           "departureTime": "16:20",
@@ -7336,13 +7377,6 @@
       ]
     },
     "BHX-ORK": {
-      "2026-11-19": [
-        {
-          "departureTime": "13:10",
-          "arrivalTime": "14:25",
-          "flightNumber": null
-        }
-      ],
       "2026-11-20": [
         {
           "departureTime": "07:45",
@@ -8192,6 +8226,13 @@
           "flightNumber": null
         }
       ],
+      "2027-05-01": [
+        {
+          "departureTime": "08:35",
+          "arrivalTime": "09:50",
+          "flightNumber": null
+        }
+      ],
       "2027-05-02": [
         {
           "departureTime": "18:00",
@@ -8217,6 +8258,13 @@
         {
           "departureTime": "16:30",
           "arrivalTime": "17:45",
+          "flightNumber": null
+        }
+      ],
+      "2027-05-08": [
+        {
+          "departureTime": "08:35",
+          "arrivalTime": "09:50",
           "flightNumber": null
         }
       ],
@@ -8248,6 +8296,13 @@
           "flightNumber": null
         }
       ],
+      "2027-05-15": [
+        {
+          "departureTime": "08:35",
+          "arrivalTime": "09:50",
+          "flightNumber": null
+        }
+      ],
       "2027-05-16": [
         {
           "departureTime": "18:00",
@@ -8273,6 +8328,13 @@
         {
           "departureTime": "16:30",
           "arrivalTime": "17:45",
+          "flightNumber": null
+        }
+      ],
+      "2027-05-22": [
+        {
+          "departureTime": "08:35",
+          "arrivalTime": "09:50",
           "flightNumber": null
         }
       ],
@@ -8304,6 +8366,13 @@
           "flightNumber": null
         }
       ],
+      "2027-05-29": [
+        {
+          "departureTime": "08:35",
+          "arrivalTime": "09:50",
+          "flightNumber": null
+        }
+      ],
       "2027-05-30": [
         {
           "departureTime": "18:00",
@@ -8320,18 +8389,6 @@
       ]
     },
     "ORK-STN": {
-      "2026-11-19": [
-        {
-          "departureTime": "13:05",
-          "arrivalTime": "14:30",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "18:45",
-          "arrivalTime": "20:10",
-          "flightNumber": null
-        }
-      ],
       "2026-11-20": [
         {
           "departureTime": "07:50",
@@ -10108,6 +10165,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "14:20",
+          "arrivalTime": "15:45",
+          "flightNumber": null
+        },
+        {
           "departureTime": "20:00",
           "arrivalTime": "21:25",
           "flightNumber": null
@@ -10200,6 +10262,11 @@
       ],
       "2027-04-03": [
         {
+          "departureTime": "06:25",
+          "arrivalTime": "07:50",
+          "flightNumber": null
+        },
+        {
           "departureTime": "09:15",
           "arrivalTime": "10:40",
           "flightNumber": null
@@ -10224,6 +10291,11 @@
         {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "14:20",
+          "arrivalTime": "15:45",
           "flightNumber": null
         },
         {
@@ -10319,6 +10391,11 @@
       ],
       "2027-04-10": [
         {
+          "departureTime": "06:25",
+          "arrivalTime": "07:50",
+          "flightNumber": null
+        },
+        {
           "departureTime": "09:15",
           "arrivalTime": "10:40",
           "flightNumber": null
@@ -10343,6 +10420,11 @@
         {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "14:20",
+          "arrivalTime": "15:45",
           "flightNumber": null
         },
         {
@@ -10438,6 +10520,11 @@
       ],
       "2027-04-17": [
         {
+          "departureTime": "06:25",
+          "arrivalTime": "07:50",
+          "flightNumber": null
+        },
+        {
           "departureTime": "09:15",
           "arrivalTime": "10:40",
           "flightNumber": null
@@ -10462,6 +10549,11 @@
         {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "14:20",
+          "arrivalTime": "15:45",
           "flightNumber": null
         },
         {
@@ -10557,6 +10649,11 @@
       ],
       "2027-04-24": [
         {
+          "departureTime": "06:25",
+          "arrivalTime": "07:50",
+          "flightNumber": null
+        },
+        {
           "departureTime": "09:15",
           "arrivalTime": "10:40",
           "flightNumber": null
@@ -10581,6 +10678,11 @@
         {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "14:20",
+          "arrivalTime": "15:45",
           "flightNumber": null
         },
         {
@@ -10676,6 +10778,11 @@
       ],
       "2027-05-01": [
         {
+          "departureTime": "06:25",
+          "arrivalTime": "07:50",
+          "flightNumber": null
+        },
+        {
           "departureTime": "09:15",
           "arrivalTime": "10:40",
           "flightNumber": null
@@ -10700,6 +10807,11 @@
         {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "14:20",
+          "arrivalTime": "15:45",
           "flightNumber": null
         },
         {
@@ -10795,6 +10907,11 @@
       ],
       "2027-05-08": [
         {
+          "departureTime": "06:25",
+          "arrivalTime": "07:50",
+          "flightNumber": null
+        },
+        {
           "departureTime": "09:15",
           "arrivalTime": "10:40",
           "flightNumber": null
@@ -10819,6 +10936,11 @@
         {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "14:20",
+          "arrivalTime": "15:45",
           "flightNumber": null
         },
         {
@@ -10914,6 +11036,11 @@
       ],
       "2027-05-15": [
         {
+          "departureTime": "06:25",
+          "arrivalTime": "07:50",
+          "flightNumber": null
+        },
+        {
           "departureTime": "09:15",
           "arrivalTime": "10:40",
           "flightNumber": null
@@ -10938,6 +11065,11 @@
         {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "14:20",
+          "arrivalTime": "15:45",
           "flightNumber": null
         },
         {
@@ -11033,6 +11165,11 @@
       ],
       "2027-05-22": [
         {
+          "departureTime": "06:25",
+          "arrivalTime": "07:50",
+          "flightNumber": null
+        },
+        {
           "departureTime": "09:15",
           "arrivalTime": "10:40",
           "flightNumber": null
@@ -11057,6 +11194,11 @@
         {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "14:20",
+          "arrivalTime": "15:45",
           "flightNumber": null
         },
         {
@@ -11152,6 +11294,11 @@
       ],
       "2027-05-29": [
         {
+          "departureTime": "06:25",
+          "arrivalTime": "07:50",
+          "flightNumber": null
+        },
+        {
           "departureTime": "09:15",
           "arrivalTime": "10:40",
           "flightNumber": null
@@ -11179,6 +11326,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "14:20",
+          "arrivalTime": "15:45",
+          "flightNumber": null
+        },
+        {
           "departureTime": "20:00",
           "arrivalTime": "21:25",
           "flightNumber": null
@@ -11203,13 +11355,6 @@
       ]
     },
     "STN-ORK": {
-      "2026-11-19": [
-        {
-          "departureTime": "20:35",
-          "arrivalTime": "22:00",
-          "flightNumber": null
-        }
-      ],
       "2026-11-20": [
         {
           "departureTime": "06:00",
@@ -12986,6 +13131,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "16:10",
+          "arrivalTime": "17:35",
+          "flightNumber": null
+        },
+        {
           "departureTime": "18:10",
           "arrivalTime": "19:35",
           "flightNumber": null
@@ -13083,6 +13233,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "08:15",
+          "arrivalTime": "09:40",
+          "flightNumber": null
+        },
+        {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
           "flightNumber": null
@@ -13102,6 +13257,11 @@
         {
           "departureTime": "13:50",
           "arrivalTime": "15:15",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "16:10",
+          "arrivalTime": "17:35",
           "flightNumber": null
         },
         {
@@ -13202,6 +13362,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "08:15",
+          "arrivalTime": "09:40",
+          "flightNumber": null
+        },
+        {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
           "flightNumber": null
@@ -13221,6 +13386,11 @@
         {
           "departureTime": "13:50",
           "arrivalTime": "15:15",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "16:10",
+          "arrivalTime": "17:35",
           "flightNumber": null
         },
         {
@@ -13321,6 +13491,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "08:15",
+          "arrivalTime": "09:40",
+          "flightNumber": null
+        },
+        {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
           "flightNumber": null
@@ -13340,6 +13515,11 @@
         {
           "departureTime": "13:50",
           "arrivalTime": "15:15",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "16:10",
+          "arrivalTime": "17:35",
           "flightNumber": null
         },
         {
@@ -13440,6 +13620,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "08:15",
+          "arrivalTime": "09:40",
+          "flightNumber": null
+        },
+        {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
           "flightNumber": null
@@ -13459,6 +13644,11 @@
         {
           "departureTime": "13:50",
           "arrivalTime": "15:15",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "16:10",
+          "arrivalTime": "17:35",
           "flightNumber": null
         },
         {
@@ -13559,6 +13749,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "08:15",
+          "arrivalTime": "09:40",
+          "flightNumber": null
+        },
+        {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
           "flightNumber": null
@@ -13578,6 +13773,11 @@
         {
           "departureTime": "13:50",
           "arrivalTime": "15:15",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "16:10",
+          "arrivalTime": "17:35",
           "flightNumber": null
         },
         {
@@ -13678,6 +13878,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "08:15",
+          "arrivalTime": "09:40",
+          "flightNumber": null
+        },
+        {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
           "flightNumber": null
@@ -13697,6 +13902,11 @@
         {
           "departureTime": "13:50",
           "arrivalTime": "15:15",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "16:10",
+          "arrivalTime": "17:35",
           "flightNumber": null
         },
         {
@@ -13797,6 +14007,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "08:15",
+          "arrivalTime": "09:40",
+          "flightNumber": null
+        },
+        {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
           "flightNumber": null
@@ -13816,6 +14031,11 @@
         {
           "departureTime": "13:50",
           "arrivalTime": "15:15",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "16:10",
+          "arrivalTime": "17:35",
           "flightNumber": null
         },
         {
@@ -13916,6 +14136,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "08:15",
+          "arrivalTime": "09:40",
+          "flightNumber": null
+        },
+        {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
           "flightNumber": null
@@ -13935,6 +14160,11 @@
         {
           "departureTime": "13:50",
           "arrivalTime": "15:15",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "16:10",
+          "arrivalTime": "17:35",
           "flightNumber": null
         },
         {
@@ -14035,6 +14265,11 @@
           "flightNumber": null
         },
         {
+          "departureTime": "08:15",
+          "arrivalTime": "09:40",
+          "flightNumber": null
+        },
+        {
           "departureTime": "12:00",
           "arrivalTime": "13:25",
           "flightNumber": null
@@ -14054,6 +14289,11 @@
         {
           "departureTime": "13:50",
           "arrivalTime": "15:15",
+          "flightNumber": null
+        },
+        {
+          "departureTime": "16:10",
+          "arrivalTime": "17:35",
           "flightNumber": null
         },
         {
@@ -14176,7 +14416,7 @@
     "successful": 72,
     "failed": 0,
     "preservedMonths": 0,
-    "flightsLoaded": 2294,
+    "flightsLoaded": 2344,
     "failures": []
   }
 }
