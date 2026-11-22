@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T15:25:17.025Z",
+  "generatedAt": "2026-11-22T21:51:49.981Z",
   "providers": [
     "champions",
     "p1"
@@ -14,7 +14,7 @@
       "home": "Leeds United",
       "away": "Newcastle United",
       "date": "2026-09-14",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": null,
         "url": "https://champions-travel.com/football/leeds-united",
@@ -32,7 +32,7 @@
       "home": "Leeds United",
       "away": "Crystal Palace",
       "date": "2026-09-20",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": null,
         "url": "https://champions-travel.com/football/leeds-united",
@@ -50,7 +50,7 @@
       "home": "Arsenal",
       "away": "Leeds United",
       "date": "2026-10-10",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 885,
         "sourcePrice": 991,
@@ -72,7 +72,7 @@
       "home": "Leeds United",
       "away": "Manchester United",
       "date": "2026-10-18",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 562,
         "sourcePrice": 628,
@@ -92,7 +92,7 @@
       "home": "Sunderland",
       "away": "Leeds United",
       "date": "2026-10-25",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": null,
         "url": null,
@@ -108,7 +108,7 @@
       "home": "Bournemouth",
       "away": "Leeds United",
       "date": "2026-10-31",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": null,
         "url": null,
@@ -124,7 +124,7 @@
       "home": "Leeds United",
       "away": "Tottenham Hotspur",
       "date": "2026-11-07",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 329,
         "sourcePrice": 366,
@@ -144,7 +144,7 @@
       "home": "Chelsea",
       "away": "Leeds United",
       "date": "2026-11-21",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 474,
         "sourcePrice": 521,
@@ -164,7 +164,7 @@
       "home": "Leeds United",
       "away": "Coventry City",
       "date": "2026-11-28",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 508,
         "sourcePrice": 558,
@@ -182,7 +182,7 @@
       "home": "Manchester City",
       "away": "Leeds United",
       "date": "2026-12-02",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 60,
         "sourcePrice": 66,
@@ -202,7 +202,7 @@
       "home": "Leeds United",
       "away": "Ipswich Town",
       "date": "2026-12-05",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 449,
         "sourcePrice": 493,
@@ -220,7 +220,7 @@
       "home": "Liverpool FC",
       "away": "Leeds United",
       "date": "2026-12-12",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": null,
         "url": "https://champions-travel.com/football/liverpool-fc",
@@ -237,7 +237,7 @@
       "home": "Leeds United",
       "away": "Fulham",
       "date": "2026-12-19",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 389,
         "sourcePrice": 427,
@@ -255,7 +255,7 @@
       "home": "Aston Villa",
       "away": "Leeds United",
       "date": "2026-12-26",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 114,
         "sourcePrice": 125,
@@ -273,7 +273,7 @@
       "home": "Hull City",
       "away": "Leeds United",
       "date": "2026-12-29",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": null,
         "url": null,
@@ -289,7 +289,7 @@
       "home": "Leeds United",
       "away": "Everton",
       "date": "2027-01-01",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 449,
         "sourcePrice": 493,
@@ -307,7 +307,7 @@
       "home": "Leeds United",
       "away": "Manchester City",
       "date": "2027-01-06",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 328,
         "sourcePrice": 361,
@@ -325,7 +325,7 @@
       "home": "Tottenham Hotspur",
       "away": "Leeds United",
       "date": "2027-01-16",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 150,
         "sourcePrice": 165,
@@ -343,7 +343,7 @@
       "home": "Leeds United",
       "away": "Chelsea",
       "date": "2027-01-23",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 359,
         "sourcePrice": 394,
@@ -361,7 +361,7 @@
       "home": "Coventry City",
       "away": "Leeds United",
       "date": "2027-01-30",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": null,
         "url": null,
@@ -377,7 +377,7 @@
       "home": "Leeds United",
       "away": "Bournemouth",
       "date": "2027-02-06",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 359,
         "sourcePrice": 394,
@@ -395,7 +395,7 @@
       "home": "Everton",
       "away": "Leeds United",
       "date": "2027-02-10",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": null,
         "url": null,
@@ -411,7 +411,7 @@
       "home": "Leeds United",
       "away": "Aston Villa",
       "date": "2027-02-20",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 389,
         "sourcePrice": 427,
@@ -429,7 +429,7 @@
       "home": "Fulham",
       "away": "Leeds United",
       "date": "2027-02-27",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 90,
         "sourcePrice": 99,
@@ -449,7 +449,7 @@
       "home": "Leeds United",
       "away": "Hull City",
       "date": "2027-03-03",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 328,
         "sourcePrice": 361,
@@ -467,7 +467,7 @@
       "home": "Leeds United",
       "away": "Brighton & Hove Albion",
       "date": "2027-03-13",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 389,
         "sourcePrice": 427,
@@ -485,7 +485,7 @@
       "home": "Newcastle United",
       "away": "Leeds United",
       "date": "2027-03-20",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": null,
         "url": null,
@@ -501,7 +501,7 @@
       "home": "Leeds United",
       "away": "Nottingham Forest",
       "date": "2027-04-10",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 389,
         "sourcePrice": 427,
@@ -519,7 +519,7 @@
       "home": "Brentford",
       "away": "Leeds United",
       "date": "2027-04-17",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 389,
         "sourcePrice": 427,
@@ -537,7 +537,7 @@
       "home": "Leeds United",
       "away": "Liverpool FC",
       "date": "2027-04-24",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 440,
         "sourcePrice": 505,
@@ -557,7 +557,7 @@
       "home": "Ipswich Town",
       "away": "Leeds United",
       "date": "2027-05-01",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": null,
         "url": null,
@@ -573,7 +573,7 @@
       "home": "Leeds United",
       "away": "Arsenal",
       "date": "2027-05-08",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 449,
         "sourcePrice": 493,
@@ -591,7 +591,7 @@
       "home": "Manchester United",
       "away": "Leeds United",
       "date": "2027-05-15",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 209,
         "sourcePrice": 230,
@@ -609,7 +609,7 @@
       "home": "Leeds United",
       "away": "Sunderland",
       "date": "2027-05-23",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 389,
         "sourcePrice": 427,
@@ -627,7 +627,7 @@
       "home": "Crystal Palace",
       "away": "Leeds United",
       "date": "2027-05-30",
-      "checkedAt": "2026-11-22T15:25:17.025Z",
+      "checkedAt": "2026-11-22T21:51:49.981Z",
       "champions": {
         "price": 162,
         "sourcePrice": 178,
