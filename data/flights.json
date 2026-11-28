@@ -1,17 +1,10 @@
 {
-  "generatedAt": "2026-11-27T12:36:48.942Z",
+  "generatedAt": "2026-11-28T03:58:00.702Z",
   "source": "Ryanair timetable API",
   "localTimes": true,
   "refreshWindowHours": 12,
   "routes": {
     "ORK-MAN": {
-      "2026-11-27": [
-        {
-          "departureTime": "19:50",
-          "arrivalTime": "21:05",
-          "flightNumber": null
-        }
-      ],
       "2026-11-28": [
         {
           "departureTime": "12:15",
@@ -2247,13 +2240,6 @@
       ]
     },
     "MAN-ORK": {
-      "2026-11-27": [
-        {
-          "departureTime": "21:30",
-          "arrivalTime": "22:45",
-          "flightNumber": null
-        }
-      ],
       "2026-11-28": [
         {
           "departureTime": "13:55",
@@ -4489,13 +4475,6 @@
       ]
     },
     "ORK-LPL": {
-      "2026-11-27": [
-        {
-          "departureTime": "16:20",
-          "arrivalTime": "17:30",
-          "flightNumber": null
-        }
-      ],
       "2026-11-29": [
         {
           "departureTime": "19:50",
@@ -5289,13 +5268,6 @@
       ]
     },
     "LPL-ORK": {
-      "2026-11-27": [
-        {
-          "departureTime": "14:45",
-          "arrivalTime": "15:55",
-          "flightNumber": null
-        }
-      ],
       "2026-11-29": [
         {
           "departureTime": "18:15",
@@ -8029,18 +8001,6 @@
       ]
     },
     "ORK-STN": {
-      "2026-11-27": [
-        {
-          "departureTime": "14:40",
-          "arrivalTime": "16:05",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "23:05",
-          "arrivalTime": "00:30",
-          "flightNumber": null
-        }
-      ],
       "2026-11-28": [
         {
           "departureTime": "10:20",
@@ -10896,18 +10856,6 @@
       ]
     },
     "STN-ORK": {
-      "2026-11-27": [
-        {
-          "departureTime": "12:50",
-          "arrivalTime": "14:15",
-          "flightNumber": null
-        },
-        {
-          "departureTime": "21:15",
-          "arrivalTime": "22:40",
-          "flightNumber": null
-        }
-      ],
       "2026-11-28": [
         {
           "departureTime": "12:15",
@@ -13858,7 +13806,7 @@
     "successful": 72,
     "failed": 0,
     "preservedMonths": 0,
-    "flightsLoaded": 2254,
+    "flightsLoaded": 2246,
     "failures": []
   }
 }
